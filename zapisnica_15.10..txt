@@ -1,0 +1,15 @@
+15.10.2014
+-------------------------------------------------------
+Peter Floch, Jabuk Sedláèek, Marián Jonis, Marek Kuel
+-------------------------------------------------------
+- pridelenie èlenov k aktivitám
+- zoznam vıstupov projektu
+- návrh špecifikácie
+-------------------------------------------------------
+Podarilo sa úspešne vytvori úloisko a nahra ganttov diagram.
+Koneène sme zorganizovali stretnutie so zadavatelom projektu na
+ktorom sme preriešili podrobnosti ohladom práce na projekte. Spravili sme návrh špecifikácie.
+-------------------------------------------------------
+Stretnutie so školitelom, dokonèenie špecifikácie.
+Zotpoveda za to bude kadı èlen sklupiny.
+
