@@ -3,10 +3,10 @@
 Peter Floch, Jabuk Sedláèek, Marián Jonis, Marek Kuel
 -------------------------------------------------------
 - Úprava špecifikácie 
-- Rozdelenie práce na konceptuálnej analíze
+- Rozdelenie práce na konceptuálnej analıze
 -------------------------------------------------------
 Prediskutovali sme so zadávatelkou špecifikáciu poiadaviek aupravili sme ju pod¾a jej pripomienok
-Pridelili  sme jednotlivım èlenom prácu na konceptuálnej analíze 
+Pridelili  sme jednotlivım èlenom prácu na konceptuálnej analıze 
 -------------------------------------------------------
-Vytvorenie koceptuálnej analízy.
+Vytvorenie koceptuálnej analızy.
 Zotpoveda za to bude kadı èlen sklupiny.
