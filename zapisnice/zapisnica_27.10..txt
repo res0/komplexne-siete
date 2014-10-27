@@ -1,0 +1,14 @@
+27.10.2014
+-------------------------------------------------------
+Peter Floch, Jabuk Sedláèek, Marián Jonis, Marek Kuel
+-------------------------------------------------------
+- pridelenie èlenov k aktivitám
+- analıza technológií, dekompozícia a dátovı model
+-------------------------------------------------------
+Prediskutovali sme analızu technológí ,rozhodovali sa o
+pouití vhodného programovacieho jazyka
+Na stretnuti sme dokoncili Analızu technológií, 
+dekompozíciu a dátovı model  
+-------------------------------------------------------
+Stretnutie so školitelom, prípadná uprava analızy technologii.
+Zodpoveda za to bude kadı èlen sklupiny.
