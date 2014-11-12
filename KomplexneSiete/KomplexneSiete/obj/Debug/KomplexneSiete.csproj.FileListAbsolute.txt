@@ -1,0 +1,8 @@
+c:\users\jakub\documents\visual studio 2013\Projects\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.csprojResolveAssemblyReference.cache
+c:\users\jakub\documents\visual studio 2013\Projects\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.Properties.Resources.resources
+c:\users\jakub\documents\visual studio 2013\Projects\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.csproj.GenerateResource.Cache
+c:\users\jakub\documents\visual studio 2013\Projects\KomplexneSiete\KomplexneSiete\bin\Debug\KomplexneSiete.exe
+c:\users\jakub\documents\visual studio 2013\Projects\KomplexneSiete\KomplexneSiete\bin\Debug\KomplexneSiete.pdb
+c:\users\jakub\documents\visual studio 2013\Projects\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.exe
+c:\users\jakub\documents\visual studio 2013\Projects\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.pdb
+C:\Users\Jakub\Documents\Visual Studio 2013\Projects\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.Form1.resources
