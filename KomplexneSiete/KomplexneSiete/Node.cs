@@ -11,7 +11,7 @@ namespace KomplexneSiete
         int degree;
         public Node(List<int> myEdges)
         {
-            edges = myEdges;
+            this.edges = myEdges;
         }
         public Node()
         {

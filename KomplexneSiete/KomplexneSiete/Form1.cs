@@ -21,6 +21,7 @@ namespace KomplexneSiete
         {
             BarabasiAlbertGraph graf = new BarabasiAlbertGraph();
             graf.Generate(10, 2);
+
         }
     }
 }
