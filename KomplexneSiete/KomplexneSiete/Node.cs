@@ -9,9 +9,9 @@ namespace KomplexneSiete
     {
         List<int> edges;
         int degree;
-        public Node(List<int> myEdges)
+        public Node(List<int> edges)
         {
-            this.edges = myEdges;
+            this.edges = edges;
         }
         public Node()
         {

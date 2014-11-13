@@ -8,3 +8,9 @@ c:\users\jakub\documents\visual studio 2013\Projects\KomplexneSiete\KomplexneSie
 C:\Users\Jakub\Documents\Visual Studio 2013\Projects\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.Form1.resources
 C:\Users\Jakub\Documents\GitHub\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.exe
 C:\Users\Jakub\Documents\GitHub\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.pdb
+C:\Users\Jakub\Documents\GitHub\komplexne-siete\KomplexneSiete\KomplexneSiete\bin\Debug\KomplexneSiete.exe
+C:\Users\Jakub\Documents\GitHub\komplexne-siete\KomplexneSiete\KomplexneSiete\bin\Debug\KomplexneSiete.pdb
+C:\Users\Jakub\Documents\GitHub\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.csprojResolveAssemblyReference.cache
+C:\Users\Jakub\Documents\GitHub\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.Form1.resources
+C:\Users\Jakub\Documents\GitHub\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.Properties.Resources.resources
+C:\Users\Jakub\Documents\GitHub\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.csproj.GenerateResource.Cache
