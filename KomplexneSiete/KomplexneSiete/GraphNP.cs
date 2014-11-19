@@ -9,7 +9,7 @@ namespace KomplexneSiete
     {
         public override void Generate()
         {
-            base.Generate();
+
         }
     }
 }
