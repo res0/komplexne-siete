@@ -5,28 +5,11 @@ using System.Text;
 
 namespace KomplexneSiete
 {
-    public class BarabasiAlbertGraph : Graph
+    public class GraphBarabasiAlbert : Graph
     {
         int m;
-        
-        public void Generate(int count, int m)
-        {
-            this.m = m;
-            this.nodeCount = count;
 
-            nodes.Clear();
-            nodes.Add(new Node(m));
-
-            for (int i = 0; i < nodeCount; i++)
-            {
-                int sum = GetDegreeSum();
-                
-            }
-
-
-        }
-
-        int GetDegreeSum()
+        public int GetDegreeSum()
         {
             int sum = 0;
             for (int j = 0; j < nodes.Count; j++)
@@ -35,5 +18,25 @@ namespace KomplexneSiete
             }
             return sum;
         }
+
+        public void Generate(int count, int m)
+        {
+            this.m = m;
+            
+
+            nodes.Clear();
+            nodes.Add(new Node(m));
+
+            for (int i = 0; i < Count(); i++)
+            {
+                int sum = GetDegreeSum();
+                
+            }
+
+
+        }
+
+
+        
     }
 }

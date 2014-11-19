@@ -19,7 +19,7 @@ namespace KomplexneSiete
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            BarabasiAlbertGraph graf = new BarabasiAlbertGraph();
+            GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
             graf.Generate(10, 2);
 
         }

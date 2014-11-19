@@ -8,33 +8,38 @@ namespace KomplexneSiete
     public class Graph
     {
         protected List<Node> nodes;
-        protected int nodeCount;
+        protected Graph_Log log;
         public Graph()
         {
             nodes = new List<Node>();
         }
-        public void AddNode()
-        {
-            Node nod = new Node();
-            nodes.Add(nod);
-        }
-        Node Get(int i)
-        {
-            return nodes[i];
-        }
-
-        List<Node> GetNodes()
+        
+        public List<Node> GetNodes()
         {
             return nodes;
         }
 
-        int Count()
+        public void AddNode(List<int> edges)
+        {
+            nodes.Add(new Node(edges));
+        }
+
+        public int Count()
         {
             return nodes.Count;
         }
-
-        public virtual void Generate() {
+        
+        public virtual void Generate()
+        {
             
+        }
+        public virtual void Update()
+        {
+
+        }
+        public virtual void Draw()
+        {
+
         }
     }
 }
