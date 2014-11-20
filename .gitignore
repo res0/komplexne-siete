@@ -156,3 +156,5 @@ FakesAssemblies/
 *.suo
 *.exe
 KomplexneSiete/KomplexneSiete.v12.suo
+*.exe
+KomplexneSiete/KomplexneSiete/bin/Debug/KomplexneSiete.vshost.exe
