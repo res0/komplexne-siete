@@ -16,10 +16,15 @@ namespace KomplexneSiete
             }
             for (int i = 0; i < n; i++)
             {
-                double cislo = rnd.NextDouble();
-                if (cislo < p)
+                for (int j = i+1; j < n; j++)
                 {
-                    Console.WriteLine("Pridaj dlhuuuuuu hranu");
+                    double cislo = rnd.NextDouble();
+                    if (cislo < p)
+                    {
+                        //tu sa spravi hrana...
+                        Console.WriteLine("pravdepodobnost bola:" + cislo.ToString());
+                        Console.WriteLine("Hrana medzi:"+i.ToString()+" a "+j.ToString());
+                    }
                 }
             }
         }
