@@ -7,8 +7,8 @@ Peter Floch, Jabuk Sedláèek, Marián Jonis, Marek Kuel
 -------------------------------------------------------
 Prediskutovali sme analızu technológí ,rozhodovali sa o
 pouití vhodného programovacieho jazyka
-Na stretnuti sme dokoncili Analızu technológií, 
+Na stretnutí sme dokonèili Analızu technológií, 
 dekompozíciu a dátovı model  
 -------------------------------------------------------
-Stretnutie so školitelom, prípadná uprava analızy technologii.
+Stretnutie so školitelom, prípadná uprava analızy technologií.
 Zodpoveda za to bude kadı èlen sklupiny.

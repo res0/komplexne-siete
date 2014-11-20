@@ -79,18 +79,25 @@ namespace KomplexneSiete
             {
                 int cn = 0;
                 List<int> edge = new List<int>();
-                for (int j = 0; j < Count(); j++)
+                //vo Wikipedii je sice, ze tych hran moze byt mensie alebo rovne m0,
+                //ale vo vsetkych obrazkoch co som nasiel sa vzdy pripaja rovnakym poctom hran
+                //tak teraz neviem :D ak to tak nie je, tak tento while cyklus vymazem:
+                while (edge.Count < m) 
                 {
-                    int sum = GetDegreeSum();
-
-                    bool testProb = TestProbability(j);
-
-                    if (testProb)
+                    for (int j = 0; j < Count(); j++)
                     {
-                        IncDegree(j);
-                        edge.Add(j);
-                        cn++;
-                        if (edge.Count >= m) break;
+                        if (edge.Contains(j)) continue;
+                        int sum = GetDegreeSum();
+
+                        bool testProb = TestProbability(j);
+
+                        if (testProb)
+                        {
+                            IncDegree(j);
+                            edge.Add(j);
+                            cn++;
+                            if (edge.Count >= m) break;
+                        }
                     }
                 }
                 if (edge.Count > 0)

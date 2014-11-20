@@ -20,7 +20,7 @@ namespace KomplexneSiete
         private void Form1_Load(object sender, EventArgs e)
         {
             GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
-            graf.Generate(30, 5);
+            graf.Generate(30, 3);
             graf.Text();
         }
     }
