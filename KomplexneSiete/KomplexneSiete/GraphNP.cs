@@ -19,7 +19,7 @@ namespace KomplexneSiete
                 double cislo = rnd.NextDouble();
                 if (cislo < p)
                 {
-                    Console.WriteLine("Pridaj dlhu hranu");
+                    Console.WriteLine("Pridaj dlhuuuuuu hranu");
                 }
             }
         }
