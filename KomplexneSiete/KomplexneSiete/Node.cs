@@ -7,7 +7,7 @@ namespace KomplexneSiete
 {
     public class Node
     {
-        List<int> edges;
+        public List<int> edges;
         int degree;
         public Node(List<int> edges)
         {
@@ -27,9 +27,13 @@ namespace KomplexneSiete
             edges.Add(i);
             degree = edges.Count;
         }
-        void ChangeDegree(int i)
+        public void ChangeDegree(int i)
         {
             degree = i;
+        }
+        public List<int> GetEdges()
+        {
+            return edges;
         }
         public int GetDegree()
         {

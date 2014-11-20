@@ -41,5 +41,27 @@ namespace KomplexneSiete
         {
 
         }
+        public void Text()
+        {
+            int i = 0;
+
+            foreach (Node node in nodes)
+            {
+                List<int> edg = node.edges;
+                string edges = "";
+                if (edg != null)
+                {
+                    foreach (int edge in edg)
+                    {
+                        edges += edge.ToString() + ", ";
+                    }
+                }
+
+                Console.WriteLine(i.ToString() + ". deg: " + node.GetDegree().ToString() + ", edge with: " + edges);
+                i++;
+            }
+            Console.WriteLine("Done!");
+
+        }
     }
 }
