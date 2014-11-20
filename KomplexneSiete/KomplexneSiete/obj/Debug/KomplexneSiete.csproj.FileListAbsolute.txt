@@ -16,3 +16,5 @@ C:\Users\Jakub\Documents\GitHub\komplexne-siete\KomplexneSiete\KomplexneSiete\ob
 C:\Users\Jakub\Documents\GitHub\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.csproj.GenerateResource.Cache
 D:\Skola\FMFI\TIS\Repozitar\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.exe
 D:\Skola\FMFI\TIS\Repozitar\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.pdb
+C:\plocha\School\TIS\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.exe
+C:\plocha\School\TIS\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.pdb
