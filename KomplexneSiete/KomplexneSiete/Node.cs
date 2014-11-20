@@ -22,7 +22,7 @@ namespace KomplexneSiete
             this.degree = degree;
         }
 
-        void AddEdge(int i)
+        public void AddEdge(int i)
         {
             edges.Add(i);
             degree = edges.Count;
