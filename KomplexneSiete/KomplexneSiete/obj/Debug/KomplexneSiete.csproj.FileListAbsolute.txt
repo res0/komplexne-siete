@@ -16,3 +16,9 @@ C:\Users\Jakub\Documents\GitHub\komplexne-siete\KomplexneSiete\KomplexneSiete\ob
 C:\Users\Jakub\Documents\GitHub\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.csproj.GenerateResource.Cache
 D:\Skola\FMFI\TIS\Repozitar\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.exe
 D:\Skola\FMFI\TIS\Repozitar\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.pdb
+D:\Skola\FMFI\TIS\Repozitar\komplexne-siete\KomplexneSiete\KomplexneSiete\bin\Debug\KomplexneSiete.exe
+D:\Skola\FMFI\TIS\Repozitar\komplexne-siete\KomplexneSiete\KomplexneSiete\bin\Debug\KomplexneSiete.pdb
+D:\Skola\FMFI\TIS\Repozitar\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.csprojResolveAssemblyReference.cache
+D:\Skola\FMFI\TIS\Repozitar\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.Form1.resources
+D:\Skola\FMFI\TIS\Repozitar\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.Properties.Resources.resources
+D:\Skola\FMFI\TIS\Repozitar\komplexne-siete\KomplexneSiete\KomplexneSiete\obj\Debug\KomplexneSiete.csproj.GenerateResource.Cache

@@ -12,6 +12,7 @@ namespace KomplexneSiete
         public Graph()
         {
             nodes = new List<Node>();
+            log = new Graph_Log();
         }
         
         public List<Node> GetNodes()
@@ -22,6 +23,7 @@ namespace KomplexneSiete
         public void AddNode(List<int> edges)
         {
             nodes.Add(new Node(edges));
+            log.Add_Step(edges);
         }
 
         public int Count()
