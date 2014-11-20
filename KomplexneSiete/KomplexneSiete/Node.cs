@@ -25,7 +25,7 @@ namespace KomplexneSiete
         public void AddEdge(int i)
         {
             edges.Add(i);
-            degree = edges.Count;
+            degree++;
         }
         public void ChangeDegree(int i)
         {
