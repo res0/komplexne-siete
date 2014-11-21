@@ -4,7 +4,7 @@
 Peter Floch, Jabuk Sedláèek, Marián Jonis, Marek Kužel
 -------------------------------------------------------
 - pridelenie èlenov k aktivitám
-- analíza technológií opravy , Návrh
+- analýza technológií opravy , Návrh
 -------------------------------------------------------
 úpravy návrhu , rozdelenie práce na Špecifikácii komponentov 
 -------------------------------------------------------

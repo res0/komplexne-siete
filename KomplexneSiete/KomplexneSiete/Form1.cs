@@ -23,7 +23,7 @@ namespace KomplexneSiete
             ce.make_XML_file("test2", new Graph());
             Console.WriteLine("som tu");
             GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
-            graf.Generate(30, 5);
+            graf.Generate(30, 3);
             graf.Text();
         }
     }

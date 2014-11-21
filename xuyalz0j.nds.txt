@@ -1,0 +1,40 @@
+﻿Merge remote-tracking branch 'origin/master'
+
+Conflicts:
+	KomplexneSiete/KomplexneSiete.v12.suo
+	KomplexneSiete/KomplexneSiete/bin/Debug/KomplexneSiete.exe
+	KomplexneSiete/KomplexneSiete/bin/Debug/KomplexneSiete.pdb
+	KomplexneSiete/KomplexneSiete/obj/Debug/KomplexneSiete.exe
+	KomplexneSiete/KomplexneSiete/obj/Debug/KomplexneSiete.pdb
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 1 different commit each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   KomplexneSiete/KomplexneSiete/Form1.cs
+#	modified:   KomplexneSiete/KomplexneSiete/GraphBarabasiAlbert.cs
+#	deleted:    KomplexneSiete/KomplexneSiete/bin/Debug/KomplexneSiete.exe
+#	deleted:    KomplexneSiete/KomplexneSiete/bin/Debug/KomplexneSiete.pdb
+#	deleted:    KomplexneSiete/KomplexneSiete/bin/Debug/test.xml
+#	deleted:    KomplexneSiete/KomplexneSiete/bin/Debug/test2.xml
+#	deleted:    KomplexneSiete/KomplexneSiete/obj/Debug/KomplexneSiete.exe
+#	deleted:    KomplexneSiete/KomplexneSiete/obj/Debug/KomplexneSiete.pdb
+#	modified:   zapisnice/zapisnica_10_11..txt
+#	modified:   zapisnice/zapisnica_27.10..txt
+#
+# Untracked files:
+#	3rqx1fjy.suf.txt
+#
+
