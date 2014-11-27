@@ -9,7 +9,10 @@ namespace KomplexneSiete
     {
         int m;
         private static Random random = new Random((int)DateTime.Now.Ticks);
-
+        /// <summary>
+        /// Function compute the degree sum of all nodes
+        /// </summary>
+        /// <returns>the sum</returns>
         public int GetDegreeSum()
         {
             int sum = 0;
