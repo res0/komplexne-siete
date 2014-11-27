@@ -55,6 +55,11 @@ namespace KomplexneSiete
          * - vypocita sa pravdepodobnost pre kazdy existujuci vrchol, otestuje ju, ak splni, prida hranu noveho vrcholu k nemu
          * - opakuje sa
          **/
+        /// <summary>
+        /// Generates nodes and edges based on Barabasi Albert algorithm.
+        /// </summary>
+        /// <param name="count">Node count</param>
+        /// <param name="m">Number of edges for each node</param>
         public void Generate(int count, int m)
         {
             this.m = m;
