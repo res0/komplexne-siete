@@ -25,8 +25,8 @@ namespace KomplexneSiete
             //GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
             //graf.Generate(30, 3);
             //graf.Text();
-            GraphNP graff = new GraphNP();
-            graff.Generate(10, 0.5);
+            GraphNM graff = new GraphNM();
+            graff.Generate(50, 50);
         }
     }
 }
