@@ -1,0 +1,10 @@
+1.12.2014
+-------------------------------------------------------
+Peter Floch, Jabuk Sedl·Ëek, Mari·n Jonis, Marek Kuûel
+-------------------------------------------------------
+- Dokoncovanie hotovych komponentov s dokumentaciou
+- Pridelenie uloh jednotlivym clenom
+-------------------------------------------------------
+˙prava komponentov, dokoncovacie prace.
+-------------------------------------------------------
+Zodpovedaù za to bude kaûd˝ Ëlen sklupiny.
