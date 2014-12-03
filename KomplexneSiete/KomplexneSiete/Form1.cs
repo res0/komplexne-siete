@@ -12,6 +12,7 @@ namespace KomplexneSiete
     public partial class Form1 : Form
     {
 
+        BAform b;
         public Form1()
         {
             InitializeComponent();
@@ -54,6 +55,10 @@ namespace KomplexneSiete
             "",
             "Generuje sa..."}, -1);
             listView1.Items.Add(listViewItem1);
+            GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
+            graf.Generate(30, 3);
+            b = new BAform(graf,20);
+            b.ShowDialog();
         }
 
         
