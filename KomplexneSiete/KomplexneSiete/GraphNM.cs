@@ -22,17 +22,25 @@ namespace KomplexneSiete
             {
                 int cislo1 = Nahodne(n);
                 int cislo2 = Nahodne(n);
-                /*if (cislo1 == cislo2)
+                if (cislo1 == cislo2)
                 {
+                    j--;
+                }
+                else
+                {
+                    if (cislo1 > cislo2)
+                    {
+                        int c = cislo1;
+                        cislo1 = cislo2;
+                        cislo2 = c;
+                    }
+                    nodes[cislo1].AddEdge(cislo2);
+                }
+                /*{
                     Testovanie ci hrana nebude slucka
                     + max 1 hrana medzi 2 vrcholmi
                 }*/
-                if(cislo1>cislo2){
-                    int c = cislo1;
-                    cislo1 = cislo2;
-                    cislo2 = c;
-                }
-                nodes[cislo1].AddEdge(cislo2);
+                
             }
             Text();
                 base.Generate();
