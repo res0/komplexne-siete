@@ -22,8 +22,7 @@ namespace KomplexneSiete
                     if (cislo < p)
                     {
                         //tu sa spravi hrana...
-                        Console.WriteLine("pravdepodobnost bola:" + cislo.ToString());
-                        Console.WriteLine("Hrana medzi:"+i.ToString()+" a "+j.ToString());
+                        nodes[i].AddEdge(j);
                     }
                 }
             }

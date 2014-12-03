@@ -22,14 +22,17 @@ namespace KomplexneSiete
 
             SizeLastColumn(listView1);
             
-            GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
-            graf.Generate(30, 3);
-            graf.Text();
             //GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
             //graf.Generate(30, 3);
             //graf.Text();
-            GraphNM graff = new GraphNM();
-            graff.Generate(50, 50);
+            //GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
+            //graf.Generate(30, 3);
+            //graf.Text();
+            GraphNP grafff = new GraphNP();
+            grafff.Generate(10, 0.5);
+            grafff.Text();
+            //GraphNM graff = new GraphNM();
+            //graff.Generate(50, 50);
 
             
 
