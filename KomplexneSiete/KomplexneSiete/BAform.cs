@@ -55,12 +55,12 @@ namespace KomplexneSiete
             pictureBox1.Show();
         }
         public void drawFund() {
-            points.Add(new Point(pictureBox1.Width / 2,pictureBox1.Height/2));
-            g.DrawEllipse(penNode, pictureBox1.Width / 2, pictureBox1.Height/2 ,r,r);
-            points.Add(new Point(pictureBox1.Width / 2 + d , pictureBox1.Height / 2));
-            g.DrawEllipse(penNode, pictureBox1.Width / 2 + d, pictureBox1.Height / 2, r, r);
-            points.Add(new Point(pictureBox1.Width / 2, pictureBox1.Height / 2 - d));
-            g.DrawEllipse(penNode, pictureBox1.Width / 2, pictureBox1.Height / 2 - d, r, r);
+            points.Add(new Point(pictureBox1.Width / 2,pictureBox1.Height/2 +150));
+            g.DrawEllipse(penNode, pictureBox1.Width / 2, pictureBox1.Height / 2 + 150, r, r);
+            points.Add(new Point(pictureBox1.Width / 2 + d, pictureBox1.Height / 2 + 150));
+            g.DrawEllipse(penNode, pictureBox1.Width / 2 + d, pictureBox1.Height / 2 + 150, r, r);
+            points.Add(new Point(pictureBox1.Width / 2, pictureBox1.Height / 2 - d + 150));
+            g.DrawEllipse(penNode, pictureBox1.Width / 2, pictureBox1.Height / 2 - d + 150, r, r);
             for (int i = 0; i < 3; i++) 
             {
                 Node n = graf[i];
@@ -169,6 +169,18 @@ namespace KomplexneSiete
                     paused = false;
                 }
             }
+        }
+        private void generatePointList()
+        {
+            points = new List<Point>();
+            for (int i = 0; i < steps/2; i++)
+            {
+                for (int j = 0; j < steps / 2; j++)
+                {
+                    points.Add(new Point(rnd.Next(pictureBox1.Width / (steps / 2) * i, pictureBox1.Width / (steps / 2) * (i+1)), rnd.Next(pictureBox1.Width / (steps / 2) * j, pictureBox1.Width / (steps / 2) * (j+1))));
+                }
+            }
+
         }
     }
 }

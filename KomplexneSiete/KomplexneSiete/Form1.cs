@@ -56,7 +56,7 @@ namespace KomplexneSiete
             "Generuje sa..."}, -1);
             listView1.Items.Add(listViewItem1);
             GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
-            graf.Generate(30, 3);
+            graf.Generate(30, 5);
             b = new BAform(graf.GetNodes(),20);
             b.ShowDialog();
         }
