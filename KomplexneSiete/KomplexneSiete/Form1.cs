@@ -57,7 +57,7 @@ namespace KomplexneSiete
             listView1.Items.Add(listViewItem1);
             GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
             graf.Generate(30, 3);
-            b = new BAform(graf,20);
+            b = new BAform(graf.GetNodes(),20);
             b.ShowDialog();
         }
 

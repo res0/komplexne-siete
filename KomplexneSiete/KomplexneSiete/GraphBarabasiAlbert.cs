@@ -119,8 +119,15 @@ namespace KomplexneSiete
             #endregion
 
         }
+        public void Draw()
+        {
+            if (this.GetNodes() != null) 
+            {
+                BAform b = new BAform(this.GetNodes(), 20);
+                b.ShowDialog();
+            }
+        }
 
-
-        
+       
     }
 }
