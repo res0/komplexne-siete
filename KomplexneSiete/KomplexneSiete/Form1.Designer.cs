@@ -44,7 +44,6 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.vizualizovatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vymazatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -157,22 +156,16 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.vizualizovatToolStripMenuItem,
-            this.vymazatToolStripMenuItem});
+            this.vizualizovatToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
             // 
             // vizualizovatToolStripMenuItem
             // 
             this.vizualizovatToolStripMenuItem.Name = "vizualizovatToolStripMenuItem";
-            this.vizualizovatToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.vizualizovatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.vizualizovatToolStripMenuItem.Text = "Vizualizovat";
-            // 
-            // vymazatToolStripMenuItem
-            // 
-            this.vymazatToolStripMenuItem.Name = "vymazatToolStripMenuItem";
-            this.vymazatToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.vymazatToolStripMenuItem.Text = "Vymazat";
+            this.vizualizovatToolStripMenuItem.Click += new System.EventHandler(this.vizualizovatToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -211,7 +204,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem vizualizovatToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vymazatToolStripMenuItem;
     }
 }
 

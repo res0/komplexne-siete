@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace KomplexneSiete
@@ -13,6 +14,8 @@ namespace KomplexneSiete
     {
 
         BAform b;
+
+        Dictionary<int,Graph> graphs;
         public Form1()
         {
             InitializeComponent();
@@ -22,20 +25,7 @@ namespace KomplexneSiete
         {
 
             SizeLastColumn(listView1);
-            
-            //GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
-            //graf.Generate(30, 3);
-            //graf.Text();
-            //GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
-            //graf.Generate(30, 3);
-            //graf.Text();
-            GraphNP grafff = new GraphNP();
-            grafff.Generate(10, 0.5);
-            grafff.Text();
-            //GraphNM graff = new GraphNM();
-            //graff.Generate(50, 50);
-
-            
+            graphs = new Dictionary<int, Graph>();
 
         }
 
@@ -50,18 +40,73 @@ namespace KomplexneSiete
 
         private void barabasiAlbertGrafToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Graf Barabási-Albert",
-            "",
-            "Generuje sa..."}, -1);
-            listView1.Items.Add(listViewItem1);
-            GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
-            graf.Generate(30, 5);
-            b = new BAform(graf.GetNodes(),20);
-            b.ShowDialog();
+
+            
+            FormBASetup fba = new FormBASetup();
+            if (fba.ShowDialog() == DialogResult.OK)
+            {
+                ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+                "Graf Barabási-Albert (n="+fba.n.ToString()+", m="+fba.m.ToString()+")",
+                "",
+                "Generuje sa..."}, -1);
+                
+                listView1.Items.Add(listViewItem1);
+                //MessageBox.Show("Supeer! " + fba.m.ToString()+" / "+fba.n.ToString());
+
+                /**Thread t = new Thread(() => generateBA(fba.n,fba.m,listView1.Items.Count-1));
+                t.Start();*/
+
+                ba_TestObject data = new ba_TestObject();
+                data.n = fba.n;
+                data.m = fba.m;
+                data.index = listView1.Items.Count - 1;
+                BackgroundWorker t = new BackgroundWorker();
+                t.DoWork += ba_DoWork;
+                t.RunWorkerCompleted += ba_RunWorkerCompleted;
+                t.RunWorkerAsync(data);
+
+            }
+            //Thread t = new Thread(new ThreadStart(generateBA));
+            //t.Start();
+            /*b = new BAform(graf.GetNodes(), 20);
+            b.ShowDialog();*/
         }
 
-        
+        private void ba_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            ba_TestObject data = e.Result as ba_TestObject;
+
+            DateTime date = DateTime.Now;
+
+            listView1.Items[data.index].SubItems[2].Text = "Hotovo.";
+            listView1.Items[data.index].SubItems[1].Text = date.ToString("dd. MM. yyyy hh:mm:ss");
+            //MessageBox.Show("HAHA");
+            graphs.Add(data.index, (Graph)data.graf);
+            
+        }
+        class ba_TestObject
+        {
+            public int n { get; set; }
+            public int m { get; set; }
+            public int index { get; set; }
+
+            public GraphBarabasiAlbert graf { get; set; }
+        }
+        private void ba_DoWork(object sender, DoWorkEventArgs e)
+        {
+            ba_TestObject data = e.Argument as ba_TestObject;
+
+            GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
+            graf.Generate(data.n, data.m);
+
+            data.graf = graf;
+
+            Thread.Sleep(2000);
+            
+
+            e.Result = data;
+        }
+
 
         private void Form1_Resize(object sender, EventArgs e)
         {
@@ -85,6 +130,20 @@ namespace KomplexneSiete
                     contextMenuStrip1.Show(Cursor.Position);
                 }
             } 
+        }
+
+        private void vizualizovatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = listView1.FocusedItem.Index;
+            if (graphs.ContainsKey(index))
+            {
+                b = new BAform(graphs[index].GetNodes(), 20);
+                b.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Vizualizáciu je možné zrealizovať až po dokončení generovania.","Nemožno vizualizovať");
+            }
         }
     }
 }
