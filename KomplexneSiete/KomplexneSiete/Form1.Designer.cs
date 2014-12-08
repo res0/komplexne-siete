@@ -75,7 +75,7 @@
             this.nPGrafToolStripMenuItem1,
             this.nMGrafToolStripMenuItem1});
             this.grafBarabásiAlbertToolStripMenuItem.Name = "grafBarabásiAlbertToolStripMenuItem";
-            this.grafBarabásiAlbertToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.grafBarabásiAlbertToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.grafBarabásiAlbertToolStripMenuItem.Text = "Generuj nový";
             // 
             // barabásiAlbertGrafToolStripMenuItem
@@ -96,11 +96,12 @@
             this.nMGrafToolStripMenuItem1.Name = "nMGrafToolStripMenuItem1";
             this.nMGrafToolStripMenuItem1.Size = new System.Drawing.Size(179, 22);
             this.nMGrafToolStripMenuItem1.Text = "NM Graf";
+            this.nMGrafToolStripMenuItem1.Click += new System.EventHandler(this.nMGrafToolStripMenuItem1_Click);
             // 
             // nPGrafToolStripMenuItem
             // 
             this.nPGrafToolStripMenuItem.Name = "nPGrafToolStripMenuItem";
-            this.nPGrafToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.nPGrafToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nPGrafToolStripMenuItem.Text = "Zatvoriť";
             this.nPGrafToolStripMenuItem.Click += new System.EventHandler(this.nPGrafToolStripMenuItem_Click);
             // 
@@ -158,12 +159,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vizualizovatToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 26);
             // 
             // vizualizovatToolStripMenuItem
             // 
             this.vizualizovatToolStripMenuItem.Name = "vizualizovatToolStripMenuItem";
-            this.vizualizovatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vizualizovatToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.vizualizovatToolStripMenuItem.Text = "Vizualizovat";
             this.vizualizovatToolStripMenuItem.Click += new System.EventHandler(this.vizualizovatToolStripMenuItem_Click);
             // 
