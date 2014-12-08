@@ -14,6 +14,10 @@ namespace KomplexneSiete
         }
         public void Generate(int n , int m)
         {
+            if (m > (n * (n - 1)) / 2)
+            {
+                return; //TODO
+            }
             for(int i=0; i < n; i++)
             {
                 this.AddNode(new List<int>());
@@ -22,7 +26,7 @@ namespace KomplexneSiete
             {
                 int cislo1 = Nahodne(n);
                 int cislo2 = Nahodne(n);
-                if (cislo1 == cislo2)
+                if (cislo1 == cislo2||!kontrola(cislo1 , cislo2))
                 {
                     j--;
                 }
@@ -46,8 +50,30 @@ namespace KomplexneSiete
                 base.Generate();
         }
         public override void Draw()
+
         {
+
             base.Draw();
         }
+        public bool kontrola(int c1 ,int c2){
+            for (int i = 0; i < nodes[c1].GetEdges().Count; i++)
+            {
+                if (nodes[c1].GetEdges()[i] == c2)
+                {
+                    return false;
+                }
+
+            }
+            for (int i = 0; i < nodes[c2].GetEdges().Count; i++)
+            {
+                if (nodes[c2].GetEdges()[i] == c1)
+                {
+                    return false;
+                }
+
+            }
+
+                return true;
+    }
     }
 }
