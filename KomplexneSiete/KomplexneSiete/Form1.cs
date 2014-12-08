@@ -26,6 +26,7 @@ namespace KomplexneSiete
 
             SizeLastColumn(listView1);
             graphs = new Dictionary<int, Graph>();
+
             GraphNP graf = new GraphNP();
             graf.Generate(20, 0.5);
             graf.Text();
@@ -152,6 +153,57 @@ namespace KomplexneSiete
             {
                 MessageBox.Show("Vizualizáciu je možné zrealizovať až po dokončení generovania.","Nemožno vizualizovať");
             }
+        }
+        class nm_TestObject
+        {
+            public int n { get; set; }
+            public int m { get; set; }
+            public int index { get; set; }
+
+            public GraphNM graf { get; set; }
+        }
+        private void nMGrafToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+                "Graf NM",
+                "",
+                "Generuje sa..."}, -1);
+            listView1.Items.Add(listViewItem1);
+            BackgroundWorker t = new BackgroundWorker();
+            nm_TestObject data = new nm_TestObject();
+            data.index = listView1.Items.Count - 1;
+            data.n = 100;
+            data.m = 50;
+            t.DoWork += nm_DoWork;
+            t.RunWorkerCompleted += nm_RunWorkerCompleted;
+            t.RunWorkerAsync(data);
+        }
+
+        private void nm_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            nm_TestObject data = e.Result as nm_TestObject;
+
+            DateTime date = DateTime.Now;
+
+            listView1.Items[data.index].SubItems[2].Text = "Hotovo.";
+            listView1.Items[data.index].SubItems[1].Text = date.ToString("dd. MM. yyyy hh:mm:ss");
+            //MessageBox.Show("HAHA");
+            graphs.Add(data.index, (Graph)data.graf);
+        }
+
+        private void nm_DoWork(object sender, DoWorkEventArgs e)
+        {
+            nm_TestObject data = e.Argument as nm_TestObject;
+
+            GraphNM graf = new GraphNM();
+            graf.Generate(data.n, data.m);
+
+            data.graf = graf;
+
+            
+
+
+            e.Result = data;
         }
     }
 }
