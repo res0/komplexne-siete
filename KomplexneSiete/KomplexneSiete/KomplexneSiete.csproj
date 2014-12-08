@@ -70,6 +70,12 @@
     <Compile Include="Graph_Log.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Graph.cs" />
+    <Compile Include="NP_NMform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NP_NMform.Designer.cs">
+      <DependentUpon>NP_NMform.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BAform.resx">
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBASetup.resx">
       <DependentUpon>FormBASetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NP_NMform.resx">
+      <DependentUpon>NP_NMform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -26,6 +26,14 @@ namespace KomplexneSiete
 
             SizeLastColumn(listView1);
             graphs = new Dictionary<int, Graph>();
+            GraphNP graf = new GraphNP();
+            graf.Generate(20, 0.5);
+            graf.Text();
+            
+            
+            NP_NMform asd = new NP_NMform(graf.GetNodes(), 10);
+            asd.ShowDialog();
+            Console.Write("asdffdg");
 
         }
 
