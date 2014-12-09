@@ -128,7 +128,7 @@ namespace KomplexneSiete
         {
             if (t != null)
             {
-                if (t.IsAlive && !paused)
+                if (t.IsAlive && ! paused) 
                 {
                     t.Suspend();
                     button2.Text = "Pokačovať";
@@ -136,12 +136,14 @@ namespace KomplexneSiete
                 }
                 else
                 {
-                    t.Resume();
-                    button2.Text = "Pozastaviť";
-                    paused = false;
+                    if (t.IsAlive)
+                    {
+                        t.Resume();
+                        button2.Text = "Pozastaviť";
+                        paused = false;
+                    }
                 }
             }
-
         }
 
     }
