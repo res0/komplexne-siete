@@ -56,6 +56,14 @@ namespace KomplexneSiete
 			}
             pictureBox1.Invalidate();
         }
+        public void draw_nodes() 
+        {
+            g.Clear(Color.White);
+            for (int i = 0; i < points.Count; i++)
+            {
+                g.DrawEllipse(penNode, points[i].X, points[i].Y, 3, 3);
+            }
+        }
 
         public void spracuj_hranu(int n1 , int n2)
         {
@@ -81,6 +89,7 @@ namespace KomplexneSiete
         public void draw()
         {
             int pocet = 0;
+            draw_nodes();
                 for (int i = 0; i < graf.Count; i++)
                 {
                     if (pocet > steps)
