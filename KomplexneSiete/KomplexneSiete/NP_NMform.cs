@@ -62,7 +62,7 @@ namespace KomplexneSiete
             g.Clear(Color.White);
             for (int i = 0; i < points.Count; i++)
             {
-                g.DrawEllipse(penNode, points[i].X, points[i].Y, 3, 3);
+                g.FillEllipse(BlueBrush, points[i].X, points[i].Y, r, r);
             }
         }
 
