@@ -163,7 +163,7 @@ namespace KomplexneSiete
                     var g = graphs[index];
                     if (g.type == GraphItem.BA)
                     {
-                        b = new BAform(g.graph.GetNodes(), fviz.steps,g.m);
+                        b = new BAform(g.graph.GetNodes(), fviz.steps,g.graph.m);
                         b.ShowDialog();
                     }
                     else if (g.type == GraphItem.NM)
