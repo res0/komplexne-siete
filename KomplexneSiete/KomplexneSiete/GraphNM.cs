@@ -18,6 +18,7 @@ namespace KomplexneSiete
             {
                 return; //TODO
             }
+            dict = new Dictionary<int, int>();
             for(int i=0; i < n; i++)
             {
                 this.AddNode(new List<int>());
@@ -38,6 +39,7 @@ namespace KomplexneSiete
                         cislo1 = cislo2;
                         cislo2 = c;
                     }
+                    dict.Add(cislo1, cislo2);
                     nodes[cislo1].AddEdge(cislo2);
                 }
                 /*{

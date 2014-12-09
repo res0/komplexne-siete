@@ -23,6 +23,7 @@ namespace KomplexneSiete
         private SolidBrush BlueBrush = new SolidBrush(Color.Blue);
         private Thread t;
         private Boolean paused;
+        private Boolean NP;
         public NP_NMform()
         {
             InitializeComponent();
@@ -42,6 +43,8 @@ namespace KomplexneSiete
             pictureBox1.Invalidate();
             pictureBox1.Show();
             generovanie();
+            if (cisla == null) { 
+            }
         }
         public void generovanie()
         {
