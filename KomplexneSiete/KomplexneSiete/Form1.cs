@@ -83,10 +83,6 @@ namespace KomplexneSiete
                 t.RunWorkerAsync(data);
 
             }
-            //Thread t = new Thread(new ThreadStart(generateBA));
-            //t.Start();
-            /*b = new BAform(graf.GetNodes(), 20);
-            b.ShowDialog();*/
         }
 
         private void ba_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -160,13 +156,14 @@ namespace KomplexneSiete
             int index = listView1.FocusedItem.Index;
             if (graphs.ContainsKey(index))
             {
+
                 FormVizSetup fviz = new FormVizSetup();
                 if (fviz.ShowDialog() == DialogResult.OK)
                 {
                     var g = graphs[index];
                     if (g.type == GraphItem.BA)
                     {
-                        b = new BAform(g.graph.GetNodes(), fviz.steps);
+                        b = new BAform(g.graph.GetNodes(), fviz.steps,g.m);
                         b.ShowDialog();
                     }
                     else if (g.type == GraphItem.NM)
@@ -181,6 +178,8 @@ namespace KomplexneSiete
                     }
 
                 }
+
+
             }
             else
             {
