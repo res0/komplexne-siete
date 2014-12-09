@@ -13,6 +13,7 @@ namespace KomplexneSiete
     public partial class NP_NMform : Form
     {
         List<Node> graf;
+        Dictionary<int, int> NM;
         int steps;
         List<Point> points;
         int r = 7;
@@ -26,9 +27,10 @@ namespace KomplexneSiete
         {
             InitializeComponent();
         }
-        public NP_NMform(List<Node> ngraf, int csteps) 
+        public NP_NMform(List<Node> ngraf, int csteps,Dictionary<int,int> cisla) 
         {
             InitializeComponent();
+            NM = cisla;
             points = new List<Point>();
             graf = ngraf;
             steps = csteps;
