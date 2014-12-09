@@ -20,6 +20,7 @@ namespace KomplexneSiete
         private System.Drawing.Pen penNode = new System.Drawing.Pen(Color.Yellow, 10);
         private System.Drawing.Pen penNNode = new System.Drawing.Pen(Color.Red, 10);
         private Thread t;
+        private Boolean paused;
         public NP_NMform()
         {
             InitializeComponent();
@@ -99,8 +100,37 @@ namespace KomplexneSiete
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (t != null && t.IsAlive)
+            {
+                if (paused)
+                {
+                    t.Resume();
+                }
+                t.Abort();
+            }
             t = new Thread(new ThreadStart(draw));
-            t.Start();
+            paused = false;
+            t.Start(); 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (t != null)
+            {
+                if (t.IsAlive && !paused)
+                {
+                    t.Suspend();
+                    button2.Text = "Pokačovať";
+                    paused = true;
+                }
+                else
+                {
+                    t.Resume();
+                    button2.Text = "Pozastaviť";
+                    paused = false;
+                }
+            }
+
         }
 
     }
