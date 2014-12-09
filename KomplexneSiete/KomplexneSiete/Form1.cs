@@ -36,13 +36,6 @@ namespace KomplexneSiete
             SizeLastColumn(listView1);
             graphs = new Dictionary<int, GraphItem>();
 
-            /*GraphNP graf = new GraphNP();
-            graf.Generate(20, 0.5);
-            graf.Text();
-            
-            NP_NMform asd = new NP_NMform(graf.GetNodes(), 10);
-            asd.ShowDialog();
-            Console.Write("asdffdg");*/
 
         }
 
@@ -68,10 +61,6 @@ namespace KomplexneSiete
                 "Generuje sa..."}, -1);
                 
                 listView1.Items.Add(listViewItem1);
-                //MessageBox.Show("Supeer! " + fba.m.ToString()+" / "+fba.n.ToString());
-
-                /**Thread t = new Thread(() => generateBA(fba.n,fba.m,listView1.Items.Count-1));
-                t.Start();*/
 
                 ba_TestObject data = new ba_TestObject();
                 data.n = fba.n;
@@ -262,7 +251,7 @@ namespace KomplexneSiete
             if (fnp.ShowDialog() == DialogResult.OK)
             {
                 ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-                "Graf NP (n="+fnp.n.ToString()+", p="+fnp.p.ToString()+")",
+                "Graf NP (n="+fnp.n.ToString()+", p="+fnp.p.ToString("0.0000")+")",
                 "",
                 "Generuje sa..."}, -1);
                 listView1.Items.Add(listViewItem1);

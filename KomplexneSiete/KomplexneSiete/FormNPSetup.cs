@@ -27,19 +27,28 @@ namespace KomplexneSiete
         private void button1_Click(object sender, EventArgs e)
         {
             var text1 = textBox1.Text;
-            var text2 = textBox2.Text;
+            var text2 = textBox2.Text.Replace('.',',');
             double dabl;
             if (text1.Length > 0 && text2.Length > 0)
             {
-                if (Regex.IsMatch(text1, @"^\d+$") && double.TryParse(text2,out dabl))
+                if (Regex.IsMatch(text1, @"^\d+$"))
                 {
-                    this.p = dabl;
-                    this.n = int.Parse(text1);
-                    this.DialogResult = DialogResult.OK;
+                    double.TryParse(text2,out dabl);
+                    if (dabl >= 0 && dabl <= 1)
+                    {
+                        //ShowMesssage(dabl.ToString("0.000"));
+                        this.p = dabl;
+                        this.n = int.Parse(text1);
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        ShowMesssage("Parameter p musí byť desatinné číslo medzi 0 a 1.");
+                    }
                 }
                 else
                 {
-                    ShowMesssage("Vstupné parametre musia byť len kladné celé čísla.");
+                    ShowMesssage("Parameter n musí byť len kladné celé číslo.");
                 }
             }
             else
