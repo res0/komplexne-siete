@@ -15,26 +15,34 @@ namespace KomplexneSiete
 
         BAform b;
 
-        Dictionary<int,Graph> graphs;
+        Dictionary<int,GraphItem> graphs;
         public Form1()
         {
             InitializeComponent();
+        }
+
+        class GraphItem
+        {
+            public static int BA = 1;
+            public static int NM = 2;
+            public static int NP = 3;
+            public Graph graph { get; set; }
+            public int type;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
             SizeLastColumn(listView1);
-            graphs = new Dictionary<int, Graph>();
+            graphs = new Dictionary<int, GraphItem>();
 
-            GraphNP graf = new GraphNP();
+            /*GraphNP graf = new GraphNP();
             graf.Generate(20, 0.5);
             graf.Text();
             
-            
             NP_NMform asd = new NP_NMform(graf.GetNodes(), 10);
             asd.ShowDialog();
-            Console.Write("asdffdg");
+            Console.Write("asdffdg");*/
 
         }
 
@@ -90,7 +98,12 @@ namespace KomplexneSiete
             listView1.Items[data.index].SubItems[2].Text = "Hotovo.";
             listView1.Items[data.index].SubItems[1].Text = date.ToString("dd. MM. yyyy hh:mm:ss");
             //MessageBox.Show("HAHA");
-            graphs.Add(data.index, (Graph)data.graf);
+
+            GraphItem item = new GraphItem();
+            item.graph = (Graph)data.graf;
+            item.type = GraphItem.BA;
+
+            graphs.Add(data.index, item);
             
         }
         class ba_TestObject
@@ -143,11 +156,31 @@ namespace KomplexneSiete
 
         private void vizualizovatToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             int index = listView1.FocusedItem.Index;
             if (graphs.ContainsKey(index))
             {
-                b = new BAform(graphs[index].GetNodes(), 20);
-                b.ShowDialog();
+                FormVizSetup fviz = new FormVizSetup();
+                if (fviz.ShowDialog() == DialogResult.OK)
+                {
+                    var g = graphs[index];
+                    if (g.type == GraphItem.BA)
+                    {
+                        b = new BAform(g.graph.GetNodes(), fviz.steps);
+                        b.ShowDialog();
+                    }
+                    else if (g.type == GraphItem.NM)
+                    {
+                        var b = new NP_NMform(g.graph.GetNodes(), fviz.steps);
+                        b.ShowDialog();
+                    }
+                    else if (g.type == GraphItem.NP)
+                    {
+                        var b = new NP_NMform(g.graph.GetNodes(), fviz.steps);
+                        b.ShowDialog();
+                    }
+
+                }
             }
             else
             {
@@ -164,20 +197,27 @@ namespace KomplexneSiete
         }
         private void nMGrafToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-                "Graf NM",
+            FormNMSetup fnm = new FormNMSetup();
+
+            if (fnm.ShowDialog() == DialogResult.OK)
+            {
+                ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+                "Graf NM (n="+fnm.n.ToString()+", m="+fnm.m.ToString()+")",
                 "",
                 "Generuje sa..."}, -1);
-            listView1.Items.Add(listViewItem1);
-            BackgroundWorker t = new BackgroundWorker();
-            nm_TestObject data = new nm_TestObject();
-            data.index = listView1.Items.Count - 1;
-            data.n = 100;
-            data.m = 50;
-            t.DoWork += nm_DoWork;
-            t.RunWorkerCompleted += nm_RunWorkerCompleted;
-            t.RunWorkerAsync(data);
+                listView1.Items.Add(listViewItem1);
+                BackgroundWorker t = new BackgroundWorker();
+                nm_TestObject data = new nm_TestObject();
+                data.index = listView1.Items.Count - 1;
+                data.n = fnm.n;
+                data.m = fnm.m;
+                t.DoWork += nm_DoWork;
+                t.RunWorkerCompleted += nm_RunWorkerCompleted;
+                t.RunWorkerAsync(data);
+            }
         }
+
+        
 
         private void nm_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -187,8 +227,12 @@ namespace KomplexneSiete
 
             listView1.Items[data.index].SubItems[2].Text = "Hotovo.";
             listView1.Items[data.index].SubItems[1].Text = date.ToString("dd. MM. yyyy hh:mm:ss");
-            //MessageBox.Show("HAHA");
-            graphs.Add(data.index, (Graph)data.graf);
+
+            GraphItem item = new GraphItem();
+            item.graph = (Graph)data.graf;
+            item.type = GraphItem.NM;
+
+            graphs.Add(data.index, item);
         }
 
         private void nm_DoWork(object sender, DoWorkEventArgs e)
@@ -200,8 +244,64 @@ namespace KomplexneSiete
 
             data.graf = graf;
 
-            
+            e.Result = data;
+        }
 
+
+        class np_TestObject
+        {
+            public int n { get; set; }
+            public double p { get; set; }
+            public int index { get; set; }
+
+            public GraphNP graf { get; set; }
+        }
+        private void nPGrafToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormNPSetup fnp = new FormNPSetup();
+
+            if (fnp.ShowDialog() == DialogResult.OK)
+            {
+                ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+                "Graf NP (n="+fnp.n.ToString()+", p="+fnp.p.ToString()+")",
+                "",
+                "Generuje sa..."}, -1);
+                listView1.Items.Add(listViewItem1);
+                BackgroundWorker t = new BackgroundWorker();
+                np_TestObject data = new np_TestObject();
+                data.index = listView1.Items.Count - 1;
+                data.n = fnp.n;
+                data.p = fnp.p;
+                t.DoWork += np_DoWork;
+                t.RunWorkerCompleted += np_RunWorkerCompleted;
+                t.RunWorkerAsync(data);
+            }
+        }
+
+        private void np_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            np_TestObject data = e.Result as np_TestObject;
+
+            DateTime date = DateTime.Now;
+
+            listView1.Items[data.index].SubItems[2].Text = "Hotovo.";
+            listView1.Items[data.index].SubItems[1].Text = date.ToString("dd. MM. yyyy hh:mm:ss");
+
+            GraphItem item = new GraphItem();
+            item.graph = (Graph)data.graf;
+            item.type = GraphItem.NP;
+
+            graphs.Add(data.index, item);
+        }
+
+        private void np_DoWork(object sender, DoWorkEventArgs e)
+        {
+            np_TestObject data = e.Argument as np_TestObject;
+
+            GraphNP graf = new GraphNP();
+            graf.Generate(data.n, data.p);
+
+            data.graf = graf;
 
             e.Result = data;
         }

@@ -90,6 +90,7 @@
             this.nPGrafToolStripMenuItem1.Name = "nPGrafToolStripMenuItem1";
             this.nPGrafToolStripMenuItem1.Size = new System.Drawing.Size(179, 22);
             this.nPGrafToolStripMenuItem1.Text = "NP Graf";
+            this.nPGrafToolStripMenuItem1.Click += new System.EventHandler(this.nPGrafToolStripMenuItem1_Click);
             // 
             // nMGrafToolStripMenuItem1
             // 

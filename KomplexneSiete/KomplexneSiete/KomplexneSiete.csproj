@@ -57,6 +57,24 @@
     <Compile Include="FormBASetup.Designer.cs">
       <DependentUpon>FormBASetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNMSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNMSetup.Designer.cs">
+      <DependentUpon>FormNMSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNPSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNPSetup.Designer.cs">
+      <DependentUpon>FormNPSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVizSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVizSetup.Designer.cs">
+      <DependentUpon>FormVizSetup.cs</DependentUpon>
+    </Compile>
     <Compile Include="GraphBarabasiAlbert.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -86,6 +104,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBASetup.resx">
       <DependentUpon>FormBASetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNMSetup.resx">
+      <DependentUpon>FormNMSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNPSetup.resx">
+      <DependentUpon>FormNPSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVizSetup.resx">
+      <DependentUpon>FormVizSetup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NP_NMform.resx">
       <DependentUpon>NP_NMform.cs</DependentUpon>
