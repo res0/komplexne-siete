@@ -44,12 +44,13 @@ namespace KomplexneSiete
         {
             Point centre = new Point(pictureBox1.Width/2,pictureBox1.Height/2);
             int radius = pictureBox1.Height / 2 - 20;
+            int radius1 = pictureBox1.Width / 2 - 20;
             double cn = 360 / graf.Count;
             points = new List<Point>();
             for (int i = 0; i < graf.Count; i++)
 			{
-                double x = centre.X + radius * Math.Cos(2 * Math.PI / 360 * i * cn);
-                double y = centre.Y + radius * Math.Sin(2 * Math.PI / 360 * i *  cn);
+                double x = centre.X + radius1 * Math.Cos(2 * Math.PI / 360 * i * cn);
+                double y = centre.Y + radius * Math.Sin(2 * Math.PI / 360 * i * cn);
                 points.Add(new Point((int)Math.Round(x), (int)Math.Round(y)));
                 g.DrawEllipse(penNode, points[points.Count - 1].X, points[points.Count - 1].Y, 3, 3);
 			}
