@@ -13,9 +13,10 @@ namespace KomplexneSiete
     public partial class NP_NMform : Form
     {
         List<Node> graf;
-        Dictionary<int, int> NM;
+        List<List<int>> NM;
         int steps;
         List<Point> points;
+        int sleep = 1400;
         int r = 7;
         private System.Drawing.Graphics g;
         private System.Drawing.Pen penEdge = new System.Drawing.Pen(Color.Red, 1);
@@ -23,12 +24,12 @@ namespace KomplexneSiete
         private SolidBrush BlueBrush = new SolidBrush(Color.Blue);
         private Thread t;
         private Boolean paused;
-        private Boolean NP;
+        private Boolean NP = false;
         public NP_NMform()
         {
             InitializeComponent();
         }
-        public NP_NMform(List<Node> ngraf, int csteps,Dictionary<int,int> cisla) 
+        public NP_NMform(List<Node> ngraf, int csteps, List<List<int>> cisla) 
         {
             InitializeComponent();
             NM = cisla;
@@ -43,7 +44,14 @@ namespace KomplexneSiete
             pictureBox1.Invalidate();
             pictureBox1.Show();
             generovanie();
-            if (cisla == null) { 
+            if (cisla == null)
+            {
+                NP = true;
+                r = 5;
+            }
+            else 
+            {
+                r = 12;
             }
         }
         public void generovanie()
@@ -51,7 +59,7 @@ namespace KomplexneSiete
             Point centre = new Point(pictureBox1.Width/2,pictureBox1.Height/2);
             int radius = pictureBox1.Height / 2 - 20;
             int radius1 = pictureBox1.Width / 2 - 20;
-            double cn = 360 / graf.Count;
+            double cn = 360 / (double)graf.Count;
             points = new List<Point>();
             for (int i = 0; i < graf.Count; i++)
 			{
@@ -76,17 +84,18 @@ namespace KomplexneSiete
             g.FillEllipse(RedBrush, points[n1].X, points[n1].Y, r, r);
             g.FillEllipse(RedBrush, points[n2].X, points[n2].Y, r, r);
             pictureBox1.Invalidate();
-            Thread.Sleep(700);
+            Thread.Sleep(sleep);
             for (int i = 0; i < graf[n1].GetEdges().Count ; i++)
             {
                 if (n2 == graf[n1].GetEdges()[i])
                 {
                     g.DrawLine(penEdge, points[n1].X + r/2, points[n1].Y + r/2, points[n2].X + r/2, points[n2].Y + r/2);
+                    Thread.Sleep(sleep);
                     pictureBox1.Invalidate();
                     break;
                 }
             }
-            Thread.Sleep(700);
+            Thread.Sleep(sleep);
             g.FillEllipse(BlueBrush, points[n1].X, points[n1].Y, r, r);
             g.FillEllipse(BlueBrush, points[n2].X, points[n2].Y, r, r);
             pictureBox1.Invalidate();
@@ -96,24 +105,38 @@ namespace KomplexneSiete
         {
             int pocet = 0;
             draw_nodes();
-                for (int i = 0; i < graf.Count; i++)
+            for (int i = 0; i < graf.Count; i++)
+            {
+                if (pocet > steps)
                 {
-                    if (pocet > steps)
-                    {
-                        break;
-                    }
-                    for (int j = i + 1; j < graf.Count; j++)
-                    {
-                        spracuj_hranu(i, j);
-                        pocet++;
-                        if (pocet > steps)
-                        {
-                            break;
-                        }
+                   break;
+                }
+                for (int j = i + 1; j < graf.Count; j++)
+                {
+                   spracuj_hranu(i, j);
+                   pocet++;
+                   if (pocet > steps)
+                   {
+                       break;
                     }
                 }
+           }
         }
+        public void drawNM() 
+        {
+            int pocet = 0;
+            draw_nodes();
+            for (int i = 0; i < NM.Count; i++)
+            {
+                spracuj_hranu(NM[i][0], NM[i][1]);
+                pocet++;
+                if (pocet > steps)
+                {
+                   break;
+                }
+            }
 
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             if (t != null && t.IsAlive)
@@ -124,7 +147,15 @@ namespace KomplexneSiete
                 }
                 t.Abort();
             }
-            t = new Thread(new ThreadStart(draw));
+            if (NP)
+            {
+                t = new Thread(new ThreadStart(draw));
+            }
+            else 
+            {
+                t = new Thread(new ThreadStart(drawNM));
+            }
+            button2.Text = "Pozastaviť";
             paused = false;
             t.Start(); 
         }

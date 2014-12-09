@@ -127,6 +127,7 @@ namespace KomplexneSiete
                 }
                 t.Abort();   
             }
+            button2.Text = "Pozastaviť";
             t = new Thread(new ThreadStart(draw));
             paused = false;
             t.Start(); 
@@ -157,9 +158,9 @@ namespace KomplexneSiete
         {
             degs = new List<int>();
             Point centre = new Point(pictureBox1.Width / 2, pictureBox1.Height / 2);
-            int radius = pictureBox1.Height / 2 - 20;
-            int radius1 = pictureBox1.Width / 2 - 20;
-            double cn = 360 / steps;
+            int radius = pictureBox1.Height / 2 - 35;
+            int radius1 = pictureBox1.Width / 2 - 35;
+            double cn = 360 / (double) steps;
             points = new List<Point>();
             for (int i = 0; i < steps; i++)
             {

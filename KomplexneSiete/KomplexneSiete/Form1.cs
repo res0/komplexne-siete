@@ -157,12 +157,12 @@ namespace KomplexneSiete
                     }
                     else if (g.type == GraphItem.NM)
                     {
-                        var b = new NP_NMform(g.graph.GetNodes(), fviz.steps);
+                        var b = new NP_NMform(g.graph.GetNodes(), fviz.steps, g.graph.dict);
                         b.ShowDialog();
                     }
                     else if (g.type == GraphItem.NP)
                     {
-                        var b = new NP_NMform(g.graph.GetNodes(), fviz.steps);
+                        var b = new NP_NMform(g.graph.GetNodes(), fviz.steps, g.graph.dict);
                         b.ShowDialog();
                     }
 

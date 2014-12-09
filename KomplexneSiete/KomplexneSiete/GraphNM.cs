@@ -18,7 +18,7 @@ namespace KomplexneSiete
             {
                 return; //TODO
             }
-            dict = new Dictionary<int, int>();
+            dict = new List<List<int>>();
             for(int i=0; i < n; i++)
             {
                 this.AddNode(new List<int>());
@@ -27,6 +27,12 @@ namespace KomplexneSiete
             {
                 int cislo1 = Nahodne(n);
                 int cislo2 = Nahodne(n);
+                if (cislo2 != cislo1) 
+                {
+                    dict.Add(new List<int>());
+                    dict[dict.Count - 1].Add(cislo1);
+                    dict[dict.Count - 1].Add(cislo2);
+                }
                 if (cislo1 == cislo2||!kontrola(cislo1 , cislo2))
                 {
                     j--;
@@ -39,7 +45,6 @@ namespace KomplexneSiete
                         cislo1 = cislo2;
                         cislo2 = c;
                     }
-                    dict.Add(cislo1, cislo2);
                     nodes[cislo1].AddEdge(cislo2);
                 }
                 /*{
