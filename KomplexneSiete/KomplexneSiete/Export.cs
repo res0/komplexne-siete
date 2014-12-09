@@ -26,26 +26,23 @@ namespace KomplexneSiete
             int p = 1;
             for (int i = 0; i < nodes.Count(); i++)
             {
-                for (int j = 0; j < nodes[i].GetEdges().Count(); j++)
+                if (nodes[i].GetEdges() != null)
                 {
-                    writer.WriteStartElement("edge");
-                    writer.WriteAttributeString("", "id", "", "e" + (p).ToString());
-                    writer.WriteAttributeString("", "source", "", (i + 1).ToString());
-                    writer.WriteAttributeString("", "target", "", nodes[i].GetEdges()[j].ToString());
-                    writer.WriteEndElement();
-                    p++;
+                    for (int j = 0; j < nodes[i].GetEdges().Count(); j++)
+                    {
+                        writer.WriteStartElement("edge");
+                        writer.WriteAttributeString("", "id", "", "e" + (p).ToString());
+                        writer.WriteAttributeString("", "source", "", "n" + (i + 1).ToString());
+                        writer.WriteAttributeString("", "target", "", "n" + (nodes[i].GetEdges()[j] + 1).ToString());
+                        writer.WriteEndElement();
+                        p++;
+                    }
                 }
             }
 
         }
         public void make_XML_file(String name, Graph graf)
         {
-            List<int> p = new List<int>();
-            graf.AddNode(p);
-            p.Add(3);
-            graf.AddNode(p);
-            p = new List<int>();
-            graf.AddNode(p);
             XmlTextWriter writer = new XmlTextWriter(name + ".xml", System.Text.Encoding.UTF8);
             writer.WriteStartDocument(true);
             writer.WriteStartElement("graphml");

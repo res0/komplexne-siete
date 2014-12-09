@@ -106,8 +106,6 @@ namespace KomplexneSiete
             GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
             graf.Generate(data.n, data.m);
 
-            data.graf = graf;
-
             Thread.Sleep(2000);
             
 
