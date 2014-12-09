@@ -15,14 +15,14 @@ namespace KomplexneSiete
         List<Node> graf;
         int steps;
         List<Point> points;
-        int d = 75;
-        int r = 8;
+        int r = 7;
+        int sleep = 700;
         private System.Drawing.Graphics g;
-        private System.Drawing.Pen penEdge = new System.Drawing.Pen(Color.Blue, 2F);
-        private System.Drawing.Pen penNode = new System.Drawing.Pen(Color.Yellow, 10);
-        private System.Drawing.Pen penNNode = new System.Drawing.Pen(Color.Red, 10);
+        private System.Drawing.Pen penEdge = new System.Drawing.Pen(Color.Red, 1);
+        private SolidBrush RedBrush = new SolidBrush(Color.Red);
+        private SolidBrush BlueBrush = new SolidBrush(Color.Blue);
         Random rnd = new Random();
-        int skok = 0;
+        int fund = 0;
         Thread t;
         Boolean paused;
         public BAform()
@@ -39,9 +39,10 @@ namespace KomplexneSiete
             pictureBox1.Show();
         
         }
-        public BAform(List<Node> ngraf , int csteps)
+        public BAform(List<Node> ngraf , int csteps , int start)
         {
             InitializeComponent();
+            fund = start;
             points = new List<Point>();
             graf = ngraf;
             steps = csteps;
@@ -53,87 +54,49 @@ namespace KomplexneSiete
             g.Clear(Color.White);
             pictureBox1.Invalidate();
             pictureBox1.Show();
+            generovanie();
+            drawFund();
         }
         public void drawFund() {
-            points.Add(new Point(pictureBox1.Width / 2,pictureBox1.Height/2 +150));
-            g.DrawEllipse(penNode, pictureBox1.Width / 2, pictureBox1.Height / 2 + 150, r, r);
-            points.Add(new Point(pictureBox1.Width / 2 + d, pictureBox1.Height / 2 + 150));
-            g.DrawEllipse(penNode, pictureBox1.Width / 2 + d, pictureBox1.Height / 2 + 150, r, r);
-            points.Add(new Point(pictureBox1.Width / 2, pictureBox1.Height / 2 - d + 150));
-            g.DrawEllipse(penNode, pictureBox1.Width / 2, pictureBox1.Height / 2 - d + 150, r, r);
-            for (int i = 0; i < 3; i++) 
+            g.Clear(Color.White);
+            for (int i = 0; i <= fund ; i++)
             {
-                Node n = graf[i];
-                if (n.GetEdges() != null)
+                g.FillEllipse(BlueBrush, points[i].X, points[i].Y, r, r);
+                if (graf[i].GetEdges() != null)
                 {
-                    for (int j = 0; j < n.GetEdges().Count; j++)
+                    for (int j = 0; j < graf[i].GetEdges().Count; j++)
                     {
-                        g.DrawLine(penEdge, points[i].X + r / 2, points[i].Y + r / 2, points[n.GetEdges()[j]].X + r / 2, points[n.GetEdges()[j]].Y + r / 2);
+                        g.DrawLine(penEdge, points[i].X + r / 2, points[i].Y + r / 2, points[graf[i].GetEdges()[j]].X + r / 2, points[graf[i].GetEdges()[j]].Y + r / 2);
                     }
                 }
             }
-                pictureBox1.Invalidate();
+            pictureBox1.Invalidate();
         }
         public void drawStep(int x)
         {
-            Node n = graf[x];
-            switch (skok)
-            {
-                case 0:
-                    points.Add(new Point(points[points.Count - 1].X - rnd.Next(d, d * 2), points[points.Count - 1].Y));
-                    break;
-                case 1:
-                    points.Add(new Point(points[points.Count - 2].X , points[points.Count - 2].Y + rnd.Next(d, d * 2)));
-                    break;
-                case 2:
-                    points.Add(new Point(points[points.Count - 3].X + rnd.Next(d, d * 2), points[points.Count - 3].Y ));
-                    break;
-                case 3:
-                    points.Add(new Point(points[points.Count - 4].X, points[points.Count - 4].Y - rnd.Next(d, d * 2)));
-                    break;
-                case 4:
-                    points.Add(new Point(points[points.Count - 5].X - rnd.Next(d, d * 2), points[points.Count -5].Y + rnd.Next(d, d * 2)));
-                    break;
-                case 5:
-                    points.Add(new Point(points[points.Count - 6].X + rnd.Next(d, d * 2), points[points.Count  -6].Y - rnd.Next(d, d * 2)));
-                    break;
-
-                default:
-                    break;
-            }
-            g.DrawEllipse(penNode, points[points.Count - 2].X, points[points.Count - 2].Y, r, r);
-            g.DrawEllipse(penNNode, points[points.Count - 1].X, points[points.Count - 1].Y, r, r);
+            g.FillEllipse(RedBrush, points[x].X, points[x].Y, r, r);
             pictureBox1.Invalidate();
-            Thread.Sleep(700);
-            skok++;
-            if (skok > 5)
+            Thread.Sleep(sleep);
+            if (graf[x].GetEdges() != null)
             {
-                skok = 0;
+                for (int i = 0; i < graf[x].GetEdges().Count; i++)
+                {
+                    g.DrawLine(penEdge, points[x].X + r / 2, points[x].Y + r / 2, points[graf[x].GetEdges()[i]].X + r / 2, points[graf[x].GetEdges()[i]].Y + r / 2);
+                    pictureBox1.Invalidate();
+                    Thread.Sleep(sleep);
+                }
             }
-            for (int i = 0; i < n.GetEdges().Count; i++) 
-            {
-                g.DrawLine(penEdge, points[i].X + r / 2, points[i].Y + r / 2, points[x].X + r / 2, points[x].Y + r / 2);
-                pictureBox1.Invalidate();
-                Thread.Sleep(700);
-            }
+            g.FillEllipse(BlueBrush, points[x].X, points[x].Y, r, r);
+            pictureBox1.Invalidate();
         }
         public void draw()
         {
-            int step = 0;
-            skok = 0;
-            g.Clear(Color.White);
-            points = new List<Point>();
-            pictureBox1.Invalidate();
-            if (graf.Count > 2)
+            int step = fund + 1;
+            drawFund();
+            while (step < steps && step < graf.Count)
             {
-                drawFund();
-                step += 3;
-                while (step <= steps && step < graf.Count)
-                {
-                    drawStep(step);
-                    step++;
-                }
-
+                drawStep(step);
+                step++;
             }
         }
 
@@ -170,17 +133,20 @@ namespace KomplexneSiete
                 }
             }
         }
-        private void generatePointList()
+        private void generovanie()
         {
+            Point centre = new Point(pictureBox1.Width / 2, pictureBox1.Height / 2);
+            int radius = pictureBox1.Height / 2 - 20;
+            int radius1 = pictureBox1.Width / 2 - 20;
+            double cn = 360 / steps;
             points = new List<Point>();
-            for (int i = 0; i < steps/2; i++)
+            for (int i = 0; i < graf.Count; i++)
             {
-                for (int j = 0; j < steps / 2; j++)
-                {
-                    points.Add(new Point(rnd.Next(pictureBox1.Width / (steps / 2) * i, pictureBox1.Width / (steps / 2) * (i+1)), rnd.Next(pictureBox1.Width / (steps / 2) * j, pictureBox1.Width / (steps / 2) * (j+1))));
-                }
+                double x = centre.X + radius1 * Math.Cos(2 * Math.PI / 360 * i * cn);
+                double y = centre.Y + radius * Math.Sin(2 * Math.PI / 360 * i * cn);
+                points.Add(new Point((int)Math.Round(x), (int)Math.Round(y)));
             }
-
+            pictureBox1.Invalidate();
         }
     }
 }

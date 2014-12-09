@@ -75,10 +75,6 @@ namespace KomplexneSiete
                 t.RunWorkerAsync(data);
 
             }
-            //Thread t = new Thread(new ThreadStart(generateBA));
-            //t.Start();
-            /*b = new BAform(graf.GetNodes(), 20);
-            b.ShowDialog();*/
         }
 
         private void ba_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -146,7 +142,7 @@ namespace KomplexneSiete
             int index = listView1.FocusedItem.Index;
             if (graphs.ContainsKey(index))
             {
-                b = new BAform(graphs[index].GetNodes(), 20);
+                b = new BAform(graphs[index].GetNodes(), 20, graphs[index].m);
                 b.ShowDialog();
             }
             else

@@ -7,6 +7,7 @@ namespace KomplexneSiete
 {
     public class Graph
     {
+        public int m { get; set; }
         protected List<Node> nodes;
         public Graph()
         {

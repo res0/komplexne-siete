@@ -7,7 +7,6 @@ namespace KomplexneSiete
 {
     public class GraphBarabasiAlbert : Graph
     {
-        int m;
         private static Random random = new Random((int)DateTime.Now.Ticks);
         /// <summary>
         /// Function compute the degree sum of all nodes
@@ -123,7 +122,7 @@ namespace KomplexneSiete
         {
             if (this.GetNodes() != null) 
             {
-                BAform b = new BAform(this.GetNodes(), 20);
+                BAform b = new BAform(this.GetNodes(), 20,this.m);
                 b.ShowDialog();
             }
         }
