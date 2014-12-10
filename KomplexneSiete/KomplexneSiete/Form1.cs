@@ -83,8 +83,10 @@ namespace KomplexneSiete
 
             DateTime date = DateTime.Now;
 
+            TimeSpan timeDiff = date - data.start;
+
             listView1.Items[data.index].SubItems[2].Text = "Hotovo.";
-            listView1.Items[data.index].SubItems[1].Text = date.ToString("dd. MM. yyyy hh:mm:ss");
+            listView1.Items[data.index].SubItems[1].Text = date.ToString("dd. MM. yyyy hh:mm:ss") + " ("+timeDiff.TotalSeconds.ToString("0.00")+"s)";
             //MessageBox.Show("HAHA");
 
             GraphItem item = new GraphItem();
@@ -99,12 +101,15 @@ namespace KomplexneSiete
             public int n { get; set; }
             public int m { get; set; }
             public int index { get; set; }
+            public DateTime start { get; set; }
 
             public GraphBarabasiAlbert graf { get; set; }
         }
         private void ba_DoWork(object sender, DoWorkEventArgs e)
         {
             ba_TestObject data = e.Argument as ba_TestObject;
+
+            data.start = DateTime.Now;
 
             GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
             graf.Generate(data.n, data.m);
@@ -179,7 +184,7 @@ namespace KomplexneSiete
             public int n { get; set; }
             public int m { get; set; }
             public int index { get; set; }
-
+            public DateTime start { get; set; }
             public GraphNM graf { get; set; }
         }
         private void nMGrafToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -211,9 +216,9 @@ namespace KomplexneSiete
             nm_TestObject data = e.Result as nm_TestObject;
 
             DateTime date = DateTime.Now;
-
+            TimeSpan timeDiff = date - data.start;
             listView1.Items[data.index].SubItems[2].Text = "Hotovo.";
-            listView1.Items[data.index].SubItems[1].Text = date.ToString("dd. MM. yyyy hh:mm:ss");
+            listView1.Items[data.index].SubItems[1].Text = date.ToString("dd. MM. yyyy hh:mm:ss") + " (" + timeDiff.TotalSeconds.ToString("0.00") + "s)";
 
             GraphItem item = new GraphItem();
             item.graph = (Graph)data.graf;
@@ -225,7 +230,7 @@ namespace KomplexneSiete
         private void nm_DoWork(object sender, DoWorkEventArgs e)
         {
             nm_TestObject data = e.Argument as nm_TestObject;
-
+            data.start = DateTime.Now;
             GraphNM graf = new GraphNM();
             graf.Generate(data.n, data.m);
 
@@ -240,7 +245,7 @@ namespace KomplexneSiete
             public int n { get; set; }
             public double p { get; set; }
             public int index { get; set; }
-
+            public DateTime start { get; set; }
             public GraphNP graf { get; set; }
         }
         private void nPGrafToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -270,9 +275,9 @@ namespace KomplexneSiete
             np_TestObject data = e.Result as np_TestObject;
 
             DateTime date = DateTime.Now;
-
+            TimeSpan timeDiff = date - data.start;
             listView1.Items[data.index].SubItems[2].Text = "Hotovo.";
-            listView1.Items[data.index].SubItems[1].Text = date.ToString("dd. MM. yyyy hh:mm:ss");
+            listView1.Items[data.index].SubItems[1].Text = date.ToString("dd. MM. yyyy hh:mm:ss") + " (" + timeDiff.TotalSeconds.ToString("0.00") + "s)";
 
             GraphItem item = new GraphItem();
             item.graph = (Graph)data.graf;
@@ -284,7 +289,7 @@ namespace KomplexneSiete
         private void np_DoWork(object sender, DoWorkEventArgs e)
         {
             np_TestObject data = e.Argument as np_TestObject;
-
+            data.start = DateTime.Now;
             GraphNP graf = new GraphNP();
             graf.Generate(data.n, data.p);
 

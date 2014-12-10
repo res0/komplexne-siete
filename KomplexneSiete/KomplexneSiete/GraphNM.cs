@@ -48,7 +48,7 @@ namespace KomplexneSiete
               
                 
             }
-            Text();
+            //Text();
                 base.Generate();
         }
         public override void Draw()
