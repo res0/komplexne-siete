@@ -37,21 +37,21 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(71, 21);
+            this.textBox1.Location = new System.Drawing.Point(171, 21);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(71, 47);
+            this.textBox2.Location = new System.Drawing.Point(171, 47);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(71, 73);
+            this.button1.Location = new System.Drawing.Point(171, 73);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 2;
@@ -62,27 +62,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 24);
+            this.label1.Location = new System.Drawing.Point(86, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "číslo n";
+            this.label1.Text = "Počet vrcholov";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 50);
+            this.label2.Location = new System.Drawing.Point(25, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.Size = new System.Drawing.Size(140, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "číslo p";
+            this.label2.Text = "Pravdepodobnosť pripájania";
             // 
             // FormNPSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(213, 122);
+            this.ClientSize = new System.Drawing.Size(314, 120);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
