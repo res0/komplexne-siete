@@ -32,6 +32,7 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,19 +45,30 @@
             this.chart1.Location = new System.Drawing.Point(0, 0);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series1.Legend = "Legend1";
             series1.Name = "Vrcholy";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(983, 612);
+            this.chart1.Size = new System.Drawing.Size(875, 612);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(897, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Log x/y";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // XYform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 612);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.chart1);
             this.Name = "XYform";
             this.Text = "XYform";
@@ -69,5 +81,6 @@
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button button1;
     }
 }
