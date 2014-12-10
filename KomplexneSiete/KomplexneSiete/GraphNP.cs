@@ -23,6 +23,7 @@ namespace KomplexneSiete
                     {
                         //tu sa spravi hrana...
                         nodes[i].AddEdge(j);
+                        nodes[j].degree++;
                     }
                 }
             }

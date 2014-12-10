@@ -8,7 +8,7 @@ namespace KomplexneSiete
     public class Node
     {
         public List<int> edges;
-        int degree;
+        public int degree;
         public Node(List<int> edges)
         {
             this.edges = edges;

@@ -43,6 +43,7 @@ namespace KomplexneSiete
                     dict[dict.Count - 1].Add(cislo1);
                     dict[dict.Count - 1].Add(cislo2);
                     nodes[cislo1].AddEdge(cislo2);
+                    nodes[cislo2].degree++;
                 }
               
                 
