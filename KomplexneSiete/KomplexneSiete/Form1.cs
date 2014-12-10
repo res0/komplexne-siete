@@ -106,9 +106,7 @@ namespace KomplexneSiete
             GraphBarabasiAlbert graf = new GraphBarabasiAlbert();
             graf.Generate(data.n, data.m);
 
-            Thread.Sleep(2000);
-            
-
+            data.graf = graf;
             e.Result = data;
         }
 
@@ -297,9 +295,11 @@ namespace KomplexneSiete
             int index = listView1.FocusedItem.Index;
             if (graphs.ContainsKey(index))
             {
+                Form2 f = new Form2();
+                f.ShowDialog();
                 var g = graphs[index];
                 Export ex = new Export();
-                ex.make_XML_file("subor", g.graph);
+                ex.make_XML_file(f.meno, g.graph);
             }
         }
     }
