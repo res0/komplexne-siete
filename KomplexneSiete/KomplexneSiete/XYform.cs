@@ -18,7 +18,7 @@ namespace KomplexneSiete
 
         private void XYform_Load(object sender, EventArgs e)
         {
-
+            
         }
 
     }
