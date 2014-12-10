@@ -36,13 +36,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 612);
             this.Name = "XYform";
-            this.Text = "Form2";
+            this.Text = "XYform";
             this.Load += new System.EventHandler(this.XYform_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
     }
 }
