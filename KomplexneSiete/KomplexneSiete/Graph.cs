@@ -8,6 +8,9 @@ namespace KomplexneSiete
     public class Graph
     {
         public int m { get; set; }
+
+        public List<List<int>> dict = null;
+
         protected List<Node> nodes;
         public Graph()
         {

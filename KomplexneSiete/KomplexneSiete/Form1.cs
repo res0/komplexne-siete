@@ -119,10 +119,6 @@ namespace KomplexneSiete
             graf.Generate(data.n, data.m);
 
             data.graf = graf;
-
-            Thread.Sleep(2000);
-            
-
             e.Result = data;
         }
 
@@ -169,12 +165,12 @@ namespace KomplexneSiete
                     }
                     else if (g.type == GraphItem.NM)
                     {
-                        var b = new NP_NMform(g.graph.GetNodes(), fviz.steps);
+                        var b = new NP_NMform(g.graph.GetNodes(), fviz.steps, g.graph.dict);
                         b.ShowDialog();
                     }
                     else if (g.type == GraphItem.NP)
                     {
-                        var b = new NP_NMform(g.graph.GetNodes(), fviz.steps);
+                        var b = new NP_NMform(g.graph.GetNodes(), fviz.steps, g.graph.dict);
                         b.ShowDialog();
                     }
 
@@ -304,6 +300,19 @@ namespace KomplexneSiete
             data.graf = graf;
 
             e.Result = data;
+        }
+
+        private void exportovatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = listView1.FocusedItem.Index;
+            if (graphs.ContainsKey(index))
+            {
+                Form2 f = new Form2();
+                f.ShowDialog();
+                var g = graphs[index];
+                Export ex = new Export();
+                ex.make_XML_file(f.meno, g.graph);
+            }
         }
     }
 }

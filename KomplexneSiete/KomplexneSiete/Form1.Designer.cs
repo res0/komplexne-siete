@@ -44,6 +44,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.vizualizovatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportovatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +76,7 @@
             this.nPGrafToolStripMenuItem1,
             this.nMGrafToolStripMenuItem1});
             this.grafBarabásiAlbertToolStripMenuItem.Name = "grafBarabásiAlbertToolStripMenuItem";
-            this.grafBarabásiAlbertToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.grafBarabásiAlbertToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.grafBarabásiAlbertToolStripMenuItem.Text = "Generuj nový";
             // 
             // barabásiAlbertGrafToolStripMenuItem
@@ -102,7 +103,7 @@
             // nPGrafToolStripMenuItem
             // 
             this.nPGrafToolStripMenuItem.Name = "nPGrafToolStripMenuItem";
-            this.nPGrafToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nPGrafToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.nPGrafToolStripMenuItem.Text = "Zatvoriť";
             this.nPGrafToolStripMenuItem.Click += new System.EventHandler(this.nPGrafToolStripMenuItem_Click);
             // 
@@ -158,16 +159,24 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.vizualizovatToolStripMenuItem});
+            this.vizualizovatToolStripMenuItem,
+            this.exportovatToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
             // 
             // vizualizovatToolStripMenuItem
             // 
             this.vizualizovatToolStripMenuItem.Name = "vizualizovatToolStripMenuItem";
-            this.vizualizovatToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.vizualizovatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.vizualizovatToolStripMenuItem.Text = "Vizualizovat";
             this.vizualizovatToolStripMenuItem.Click += new System.EventHandler(this.vizualizovatToolStripMenuItem_Click);
+            // 
+            // exportovatToolStripMenuItem
+            // 
+            this.exportovatToolStripMenuItem.Name = "exportovatToolStripMenuItem";
+            this.exportovatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exportovatToolStripMenuItem.Text = "Exportovat";
+            this.exportovatToolStripMenuItem.Click += new System.EventHandler(this.exportovatToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -206,6 +215,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem vizualizovatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportovatToolStripMenuItem;
     }
 }
 
