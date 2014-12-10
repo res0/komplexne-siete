@@ -291,5 +291,16 @@ namespace KomplexneSiete
 
             e.Result = data;
         }
+
+        private void exportovatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = listView1.FocusedItem.Index;
+            if (graphs.ContainsKey(index))
+            {
+                var g = graphs[index];
+                Export ex = new Export();
+                ex.make_XML_file("subor", g.graph);
+            }
+        }
     }
 }
