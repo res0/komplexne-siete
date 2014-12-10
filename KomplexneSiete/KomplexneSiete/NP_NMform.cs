@@ -16,7 +16,7 @@ namespace KomplexneSiete
         List<List<int>> NM;
         int steps;
         List<Point> points;
-        int sleep = 1400;
+        int sleep = 700;
         int r = 7;
         private System.Drawing.Graphics g;
         private System.Drawing.Pen penEdge = new System.Drawing.Pen(Color.Red, 1);
@@ -32,6 +32,16 @@ namespace KomplexneSiete
         public NP_NMform(List<Node> ngraf, int csteps, List<List<int>> cisla) 
         {
             InitializeComponent();
+            NM = cisla;
+            if (cisla == null)
+            {
+                NP = true;
+                r = 5;
+            }
+            else
+            {
+                r = 12;
+            }
             points = new List<Point>();
             graf = ngraf;
             steps = csteps;
@@ -43,15 +53,6 @@ namespace KomplexneSiete
             pictureBox1.Invalidate();
             pictureBox1.Show();
             generovanie();
-            if (cisla == null)
-            {
-                NP = true;
-                r = 5;
-            }
-            else 
-            {
-                r = 12;
-            }
         }
         public void generovanie()
         {
@@ -177,6 +178,11 @@ namespace KomplexneSiete
                 }
             }
 
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            sleep = vScrollBar1.Value;
         }
 
     }

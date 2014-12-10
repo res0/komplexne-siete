@@ -149,5 +149,10 @@ namespace KomplexneSiete
             }
             pictureBox1.Invalidate();
         }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            sleep = vScrollBar1.Value;
+        }
     }
 }
