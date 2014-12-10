@@ -45,6 +45,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.vizualizovatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportovatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -162,19 +163,19 @@
             this.vizualizovatToolStripMenuItem,
             this.exportovatToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 48);
             // 
             // vizualizovatToolStripMenuItem
             // 
             this.vizualizovatToolStripMenuItem.Name = "vizualizovatToolStripMenuItem";
-            this.vizualizovatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vizualizovatToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.vizualizovatToolStripMenuItem.Text = "Vizualizovat";
             this.vizualizovatToolStripMenuItem.Click += new System.EventHandler(this.vizualizovatToolStripMenuItem_Click);
             // 
             // exportovatToolStripMenuItem
             // 
             this.exportovatToolStripMenuItem.Name = "exportovatToolStripMenuItem";
-            this.exportovatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exportovatToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.exportovatToolStripMenuItem.Text = "Exportovat";
             this.exportovatToolStripMenuItem.Click += new System.EventHandler(this.exportovatToolStripMenuItem_Click);
             // 
@@ -216,6 +217,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem vizualizovatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportovatToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

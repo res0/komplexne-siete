@@ -307,7 +307,9 @@ namespace KomplexneSiete
             int index = listView1.FocusedItem.Index;
             if (graphs.ContainsKey(index))
             {
-                Form2 f = new Form2();
+                saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif"
+                saveFileDialog1.Title = "Save an Image File"
+                saveFileDialog1.ShowDialog();
                 f.ShowDialog();
                 var g = graphs[index];
                 Export ex = new Export();
