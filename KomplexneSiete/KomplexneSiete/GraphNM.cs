@@ -27,12 +27,6 @@ namespace KomplexneSiete
             {
                 int cislo1 = Nahodne(n);
                 int cislo2 = Nahodne(n);
-                if (cislo2 != cislo1) 
-                {
-                    dict.Add(new List<int>());
-                    dict[dict.Count - 1].Add(cislo1);
-                    dict[dict.Count - 1].Add(cislo2);
-                }
                 if (cislo1 == cislo2||!kontrola(cislo1 , cislo2))
                 {
                     j--;
@@ -45,12 +39,12 @@ namespace KomplexneSiete
                         cislo1 = cislo2;
                         cislo2 = c;
                     }
+                    dict.Add(new List<int>());
+                    dict[dict.Count - 1].Add(cislo1);
+                    dict[dict.Count - 1].Add(cislo2);
                     nodes[cislo1].AddEdge(cislo2);
                 }
-                /*{
-                    Testovanie ci hrana nebude slucka
-                    + max 1 hrana medzi 2 vrcholmi
-                }*/
+              
                 
             }
             Text();
