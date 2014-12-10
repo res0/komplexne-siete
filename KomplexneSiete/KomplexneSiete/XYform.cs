@@ -19,11 +19,11 @@ namespace KomplexneSiete
         private void XYform_Load(object sender, EventArgs e)
         {
             GraphNP graf = new GraphNP();
-            graf.Generate(20, 0.5);
+            graf.Generate(100, 0.2);
             var g = graf.GetNodes();
             for (int i = 0; i < g.Count; i++)
             {
-                Console.WriteLine(i.ToString() + " " + g[i].GetDegree().ToString());
+                chart1.Series["Vrcholy"].Points.AddXY(i+1, g[i].GetDegree());
             }
         }
 
