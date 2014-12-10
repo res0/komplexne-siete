@@ -46,6 +46,7 @@
             this.vizualizovatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportovatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.xYGrafToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -119,8 +120,9 @@
             // oProgrameToolStripMenuItem
             // 
             this.oProgrameToolStripMenuItem.Name = "oProgrameToolStripMenuItem";
-            this.oProgrameToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.oProgrameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.oProgrameToolStripMenuItem.Text = "O programe";
+            this.oProgrameToolStripMenuItem.Click += new System.EventHandler(this.oProgrameToolStripMenuItem_Click);
             // 
             // listView1
             // 
@@ -161,23 +163,31 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vizualizovatToolStripMenuItem,
+            this.xYGrafToolStripMenuItem,
             this.exportovatToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 70);
             // 
             // vizualizovatToolStripMenuItem
             // 
             this.vizualizovatToolStripMenuItem.Name = "vizualizovatToolStripMenuItem";
-            this.vizualizovatToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.vizualizovatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.vizualizovatToolStripMenuItem.Text = "Vizualizovat";
             this.vizualizovatToolStripMenuItem.Click += new System.EventHandler(this.vizualizovatToolStripMenuItem_Click);
             // 
             // exportovatToolStripMenuItem
             // 
             this.exportovatToolStripMenuItem.Name = "exportovatToolStripMenuItem";
-            this.exportovatToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.exportovatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exportovatToolStripMenuItem.Text = "Exportovat";
             this.exportovatToolStripMenuItem.Click += new System.EventHandler(this.exportovatToolStripMenuItem_Click);
+            // 
+            // xYGrafToolStripMenuItem
+            // 
+            this.xYGrafToolStripMenuItem.Name = "xYGrafToolStripMenuItem";
+            this.xYGrafToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.xYGrafToolStripMenuItem.Text = "XY graf";
+            this.xYGrafToolStripMenuItem.Click += new System.EventHandler(this.xYGrafToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -218,6 +228,7 @@
         private System.Windows.Forms.ToolStripMenuItem vizualizovatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportovatToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem xYGrafToolStripMenuItem;
     }
 }
 

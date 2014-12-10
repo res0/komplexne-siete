@@ -11,20 +11,39 @@ namespace KomplexneSiete
 {
     public partial class XYform : Form
     {
+        List<Node> nodes;
         public XYform()
         {
             InitializeComponent();
         }
 
+        public XYform(List<Node> nd)
+        {
+            InitializeComponent();
+            nodes = new List<Node>();
+            nodes = nd;
+        }
+
         private void XYform_Load(object sender, EventArgs e)
+        {
+            
+            var g = nodes;
+            for (int i = 0; i < g.Count; i++)
+            {
+                chart1.Series["Vrcholy"].Points.AddXY(i + 1, g[i].GetDegree());
+            }
+        }
+
+        public void ShowGraph(List<Node> grafz)
         {
             GraphNP graf = new GraphNP();
             graf.Generate(100, 0.2);
             var g = graf.GetNodes();
             for (int i = 0; i < g.Count; i++)
             {
-                chart1.Series["Vrcholy"].Points.AddXY(i+1, g[i].GetDegree());
+                chart1.Series["Vrcholy"].Points.AddXY(i + 1, g[i].GetDegree());
             }
+            
         }
 
     }

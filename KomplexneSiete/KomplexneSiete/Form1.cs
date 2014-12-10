@@ -307,5 +307,21 @@ namespace KomplexneSiete
                 ex.make_XML_file(saveFileDialog1.FileName, g.graph);
             }
         }
+
+        private void xYGrafToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = listView1.FocusedItem.Index;
+            if (graphs.ContainsKey(index))
+            {
+                XYform xy = new XYform(graphs[index].graph.GetNodes());
+                xy.ShowDialog();
+                //xy.ShowGraph(graphs[index].graph.GetNodes());
+            }
+        }
+
+        private void oProgrameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Program bol vytvorený na predmet\r\nTvorba Informačných Systémov.\r\n\r\n2014", "O programe");
+        }
     }
 }
