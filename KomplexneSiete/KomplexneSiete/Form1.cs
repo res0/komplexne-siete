@@ -34,18 +34,8 @@ namespace KomplexneSiete
         {
 
             graphs = new Dictionary<int, GraphItem>();
-            /*SizeLastColumn(listView1);
-            graphs = new Dictionary<int, GraphItem>();
-
-            GraphNP graf = new GraphNP();
-            graf.Generate(20, 0.5);
-            graf.Text();
+            SizeLastColumn(listView1);
             
-            NP_NMform asd = new NP_NMform(graf.GetNodes(), 10);
-            asd.ShowDialog();
-            Console.Write("asdffdg");*/
-            //XYform asd = new XYform();
-            //asd.ShowDialog();
         }
 
 
@@ -309,6 +299,7 @@ namespace KomplexneSiete
             if (graphs.ContainsKey(index))
             {
                 //saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif"
+                saveFileDialog1.Filter = "Files (*.xml)|*.xml";
                 saveFileDialog1.Title = "Uložiť Graf";
                 saveFileDialog1.ShowDialog();
                 var g = graphs[index];

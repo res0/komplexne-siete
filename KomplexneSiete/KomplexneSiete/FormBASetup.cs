@@ -35,7 +35,15 @@ namespace KomplexneSiete
                 {
                     this.m = int.Parse(text2);
                     this.n = int.Parse(text1);
-                    this.DialogResult = DialogResult.OK;
+                    if (this.n > this.m)
+                    {
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        ShowMesssage("Počet vrcholov musí byť väčší ako počet hrán.");
+                    }
+                    
                 }
                 else
                 {
@@ -47,9 +55,9 @@ namespace KomplexneSiete
                 ShowMesssage("Zadajte parametre.");
             }
         }
-        public void ShowMesssage(string text)
+        public void ShowMesssage(string text, string caption="")
         {
-            MessageBox.Show(text);
+            MessageBox.Show(text,caption);
         }
     }
 }

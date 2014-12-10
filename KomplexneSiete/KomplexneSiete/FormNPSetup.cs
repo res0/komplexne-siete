@@ -49,7 +49,7 @@ namespace KomplexneSiete
         }
         public void ShowMesssage(string text)
         {
-            MessageBox.Show(text);
+            MessageBox.Show(text,"Chyba");
         }
     }
 }

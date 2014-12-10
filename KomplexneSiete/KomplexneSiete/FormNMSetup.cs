@@ -29,21 +29,28 @@ namespace KomplexneSiete
                 {
                     this.m = int.Parse(text2);
                     this.n = int.Parse(text1);
-                    this.DialogResult = DialogResult.OK;
+                    if (m > (n * (n - 1)) / 2)
+                    {
+                        ShowMessage("Zadali ste nesprávne hodnoty parametrov.");
+                    }
+                    else
+                    {
+                        this.DialogResult = DialogResult.OK;
+                    }
                 }
                 else
                 {
-                    ShowMesssage("Vstupné parametre musia byť len kladné celé čísla.");
+                    ShowMessage("Vstupné parametre musia byť len kladné celé čísla.");
                 }
             }
             else
             {
-                ShowMesssage("Zadajte parametre.");
+                ShowMessage("Zadajte parametre.");
             }
         }
-        public void ShowMesssage(string text)
+        public void ShowMessage(string text)
         {
-            MessageBox.Show(text);
+            MessageBox.Show(text,"Chyba");
         }
     }
 }
