@@ -33,6 +33,7 @@ namespace KomplexneSiete
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            graphs = new Dictionary<int, GraphItem>();
             /*SizeLastColumn(listView1);
             graphs = new Dictionary<int, GraphItem>();
 
