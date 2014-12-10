@@ -29,7 +29,6 @@ namespace KomplexneSiete
         {
             InitializeComponent();
         }
-        public NP_NMform(List<Node> ngraf, int csteps) 
         public NP_NMform(List<Node> ngraf, int csteps, List<List<int>> cisla) 
         {
             InitializeComponent();

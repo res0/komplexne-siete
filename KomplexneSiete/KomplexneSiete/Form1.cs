@@ -43,8 +43,8 @@ namespace KomplexneSiete
             NP_NMform asd = new NP_NMform(graf.GetNodes(), 10);
             asd.ShowDialog();
             Console.Write("asdffdg");*/
-            XYform asd = new XYform();
-            asd.ShowDialog();
+            //XYform asd = new XYform();
+            //asd.ShowDialog();
         }
 
 
@@ -307,13 +307,12 @@ namespace KomplexneSiete
             int index = listView1.FocusedItem.Index;
             if (graphs.ContainsKey(index))
             {
-                saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif"
-                saveFileDialog1.Title = "Save an Image File"
+                //saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif"
+                saveFileDialog1.Title = "Uložiť Graf";
                 saveFileDialog1.ShowDialog();
-                f.ShowDialog();
                 var g = graphs[index];
                 Export ex = new Export();
-                ex.make_XML_file(f.meno, g.graph);
+                ex.make_XML_file(saveFileDialog1.FileName, g.graph);
             }
         }
     }
