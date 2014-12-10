@@ -27,7 +27,8 @@ namespace KomplexneSiete
         private void button1_Click(object sender, EventArgs e)
         {
             var text1 = textBox1.Text;
-            var text2 = textBox2.Text;
+            var text2 = textBox2.Text.Replace('.',',');
+            
             double dabl;
             if (text1.Length > 0 && text2.Length > 0)
             {
@@ -35,11 +36,18 @@ namespace KomplexneSiete
                 {
                     this.p = dabl;
                     this.n = int.Parse(text1);
-                    this.DialogResult = DialogResult.OK;
+                    if (p >= 0 && p <= 1)
+                    {
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        ShowMesssage("Pravdepodobnosť musí byť desatinné číslo medzi 0 a 1.");
+                    }
                 }
                 else
                 {
-                    ShowMesssage("Vstupné parametre musia byť len kladné celé čísla.");
+                    ShowMesssage("Počet vrcholov musí byť kladné celé číslo.");
                 }
             }
             else
