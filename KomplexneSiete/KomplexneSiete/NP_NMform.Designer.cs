@@ -68,7 +68,7 @@
             this.vScrollBar1.LargeChange = 100;
             this.vScrollBar1.Location = new System.Drawing.Point(934, 58);
             this.vScrollBar1.Maximum = 1200;
-            this.vScrollBar1.Minimum = 20;
+            this.vScrollBar1.Minimum = 1;
             this.vScrollBar1.Name = "vScrollBar1";
             this.vScrollBar1.Size = new System.Drawing.Size(17, 545);
             this.vScrollBar1.SmallChange = 10;
