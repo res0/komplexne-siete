@@ -172,7 +172,10 @@ namespace KomplexneSiete
                 }
                 else
                 {
-                    t.Resume();
+                    if (t.IsAlive)
+                    {
+                        t.Resume();
+                    }
                     button2.Text = "Pozastaviť";
                     paused = false;
                 }
@@ -183,6 +186,11 @@ namespace KomplexneSiete
         private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
             sleep = vScrollBar1.Value;
+        }
+
+        private void NP_NMform_Load(object sender, EventArgs e)
+        {
+
         }
 
     }

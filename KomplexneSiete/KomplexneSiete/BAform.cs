@@ -128,7 +128,10 @@ namespace KomplexneSiete
                 }
                 else
                 {
-                    t.Resume();
+                    if (t.IsAlive)
+                    {
+                        t.Resume();
+                    }
                     button2.Text = "Pozastaviť";
                     paused = false;
                 }

@@ -87,6 +87,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "NP_NMform";
             this.Text = "NP_NMform";
+            this.Load += new System.EventHandler(this.NP_NMform_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
