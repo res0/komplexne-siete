@@ -13,7 +13,7 @@ namespace KomplexneSiete
     {
         Boolean tlacidlo = true;
         List<Node> nodes;
-        //Dictionary<int,int> d;
+        Dictionary<int,int> d;
         public XYform()
         {
             InitializeComponent();
@@ -24,14 +24,28 @@ namespace KomplexneSiete
             InitializeComponent();
             nodes = new List<Node>();
             nodes = nd;
+            d = new Dictionary<int, int>();
+            for (int i = 0; i < nd.Count; i++) 
+            {
+                if (d.ContainsKey(nodes[i].GetDegree()))
+                {
+                    d[nodes[i].GetDegree()]++;
+                }
+                else
+                {
+                    d.Add(nodes[i].GetDegree(), 1);
+                }
+            }
         }
 
         private void XYform_Load(object sender, EventArgs e)
         {
-            var g = nodes;
-            for (int i = 0; i < g.Count; i++)
+
+            List<int> k = new List<int>(d.Keys);
+            for (int i = 0; i < k.Count; i++)
             {
-                chart1.Series["Vrcholy"].Points.AddXY(i + 1, g[i].GetDegree());
+
+                chart1.Series["Vrcholy"].Points.AddXY(d[k[i]], k[i]);
             }
         }
 
@@ -42,16 +56,16 @@ namespace KomplexneSiete
                 tlacidlo = false;
                 button1.Text = "X/Y";
                 chart1.Series["Vrcholy"].Points.Clear();
-                var g = nodes;
-                for (int i = 0; i < g.Count; i++)
+                List<int> k = new List<int>(d.Keys);
+                for (int i = 0; i < k.Count; i++)
                 {
-                    if (g[i].GetDegree() != 0)
+                    if (k[i] != 0)
                     {
-                        chart1.Series["Vrcholy"].Points.AddXY(Math.Log(i + 1), Math.Log(g[i].GetDegree()));
+                        chart1.Series["Vrcholy"].Points.AddXY(Math.Log(d[k[i]]), Math.Log(k[i]));
                     }
                     else
                     {
-                        chart1.Series["Vrcholy"].Points.AddXY(Math.Log(i + 1), Math.Log(0.00000001));
+                        chart1.Series["Vrcholy"].Points.AddXY(Math.Log(d[k[i]]), Math.Log(0.00000001));
                     }
                 }
                 chart1.Invalidate();
@@ -61,9 +75,10 @@ namespace KomplexneSiete
                 var g = nodes;
                 button1.Text = "Log X/Y";
                 chart1.Series["Vrcholy"].Points.Clear();
-                for (int i = 0; i < g.Count; i++)
+                List<int> k = new List<int>(d.Keys);
+                for (int i = 0; i < k.Count; i++)
                 {
-                    chart1.Series["Vrcholy"].Points.AddXY(i + 1, g[i].GetDegree());
+                    chart1.Series["Vrcholy"].Points.AddXY(d[k[i]], k[i]);
                 }
                 tlacidlo = true;
             }
