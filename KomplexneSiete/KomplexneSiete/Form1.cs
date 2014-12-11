@@ -21,6 +21,9 @@ namespace KomplexneSiete
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Class which is used to store graph information (Graph class and graph type)
+        /// </summary>
         class GraphItem
         {
             public static int BA = 1;
@@ -46,12 +49,17 @@ namespace KomplexneSiete
         }
 
 
-
+        /// <summary>
+        /// Click event for Generate Barabasi-Albert button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void barabasiAlbertGrafToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             
             FormBASetup fba = new FormBASetup();
+            //Opens a dialog to set NP graph parameters. When the DialogResult is OK, then it starts a new thread for generating the graph.
             if (fba.ShowDialog() == DialogResult.OK)
             {
                 ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
@@ -60,10 +68,6 @@ namespace KomplexneSiete
                 "Generuje sa..."}, -1);
                 
                 listView1.Items.Add(listViewItem1);
-                //MessageBox.Show("Supeer! " + fba.m.ToString()+" / "+fba.n.ToString());
-
-                /**Thread t = new Thread(() => generateBA(fba.n,fba.m,listView1.Items.Count-1));
-                t.Start();*/
 
                 ba_TestObject data = new ba_TestObject();
                 data.n = fba.n;
@@ -77,6 +81,11 @@ namespace KomplexneSiete
             }
         }
 
+        /// <summary>
+        /// This event is called when the BackgroundWorker component(Thread) process is completed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ba_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             ba_TestObject data = e.Result as ba_TestObject;
@@ -87,7 +96,6 @@ namespace KomplexneSiete
 
             listView1.Items[data.index].SubItems[2].Text = "Hotovo.";
             listView1.Items[data.index].SubItems[1].Text = date.ToString("dd. MM. yyyy hh:mm:ss") + " ("+timeDiff.TotalSeconds.ToString("0.00")+"s)";
-            //MessageBox.Show("HAHA");
 
             GraphItem item = new GraphItem();
             item.graph = (Graph)data.graf;
@@ -96,6 +104,10 @@ namespace KomplexneSiete
             graphs.Add(data.index, item);
             
         }
+
+        /// <summary>
+        /// Class for graph information storage. Sent as Argument/Result in BackgroundWorker.
+        /// </summary>
         class ba_TestObject
         {
             public int n { get; set; }
@@ -105,6 +117,12 @@ namespace KomplexneSiete
 
             public GraphBarabasiAlbert graf { get; set; }
         }
+
+        /// <summary>
+        /// The Thread for generating BA graph.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ba_DoWork(object sender, DoWorkEventArgs e)
         {
             ba_TestObject data = e.Argument as ba_TestObject;
@@ -118,11 +136,20 @@ namespace KomplexneSiete
             e.Result = data;
         }
 
-
+        /// <summary>
+        /// On window resize event.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Resize(object sender, EventArgs e)
         {
             SizeLastColumn(listView1);
         }
+
+        /// <summary>
+        /// Resizes the last column of listview to make it look better.
+        /// </summary>
+        /// <param name="lv"></param>
         private void SizeLastColumn(ListView lv)
         {
             lv.Columns[lv.Columns.Count - 1].Width = -2;
@@ -131,7 +158,11 @@ namespace KomplexneSiete
         
 
         
-
+        /// <summary>
+        /// Event for listview item right click. Shows a context menu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -143,6 +174,11 @@ namespace KomplexneSiete
             } 
         }
 
+        /// <summary>
+        /// Listview context menu click event for visualisation. Opens new form with graph visualisation.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void vizualizovatToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
@@ -179,6 +215,10 @@ namespace KomplexneSiete
                 MessageBox.Show("Vizualizáciu je možné zrealizovať až po dokončení generovania.","Nemožno vizualizovať");
             }
         }
+
+        /// <summary>
+        /// Class for graph information storage. Sent as Argument/Result in BackgroundWorker.
+        /// </summary>
         class nm_TestObject
         {
             public int n { get; set; }
@@ -187,10 +227,16 @@ namespace KomplexneSiete
             public DateTime start { get; set; }
             public GraphNM graf { get; set; }
         }
+
+        /// <summary>
+        /// Click event for Generate NM graph button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nMGrafToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FormNMSetup fnm = new FormNMSetup();
-
+            //Opens a dialog to set NP graph parameters. When the DialogResult is OK, then it starts a new thread for generating the graph.
             if (fnm.ShowDialog() == DialogResult.OK)
             {
                 ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
@@ -210,7 +256,11 @@ namespace KomplexneSiete
         }
 
         
-
+        /// <summary>
+        /// This event is called when the BackgroundWorker component(Thread) process is completed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nm_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             nm_TestObject data = e.Result as nm_TestObject;
@@ -227,6 +277,11 @@ namespace KomplexneSiete
             graphs.Add(data.index, item);
         }
 
+        /// <summary>
+        /// The Thread for generating NM graph.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nm_DoWork(object sender, DoWorkEventArgs e)
         {
             nm_TestObject data = e.Argument as nm_TestObject;
@@ -239,7 +294,9 @@ namespace KomplexneSiete
             e.Result = data;
         }
 
-
+        /// <summary>
+        /// Class for graph information storage. Sent as Argument/Result in BackgroundWorker.
+        /// </summary>
         class np_TestObject
         {
             public int n { get; set; }
@@ -248,10 +305,18 @@ namespace KomplexneSiete
             public DateTime start { get; set; }
             public GraphNP graf { get; set; }
         }
+
+
+        /// <summary>
+        /// Click event for Generate NP graph button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nPGrafToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FormNPSetup fnp = new FormNPSetup();
 
+            //Opens a dialog to set NP graph parameters. When the DialogResult is OK, then it starts a new thread for generating the graph.
             if (fnp.ShowDialog() == DialogResult.OK)
             {
                 ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
@@ -270,6 +335,11 @@ namespace KomplexneSiete
             }
         }
 
+        /// <summary>
+        /// This event is called when the BackgroundWorker component(Thread) process is completed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void np_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             np_TestObject data = e.Result as np_TestObject;
@@ -286,6 +356,11 @@ namespace KomplexneSiete
             graphs.Add(data.index, item);
         }
 
+        /// <summary>
+        /// The Thread for generating NP graph.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void np_DoWork(object sender, DoWorkEventArgs e)
         {
             np_TestObject data = e.Argument as np_TestObject;
@@ -298,6 +373,12 @@ namespace KomplexneSiete
             e.Result = data;
         }
 
+
+        /// <summary>
+        /// Click event for exporting selected graph from listview.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exportovatToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int index = listView1.FocusedItem.Index;
@@ -314,6 +395,11 @@ namespace KomplexneSiete
             }
         }
 
+        /// <summary>
+        /// Click event for showing XY graph for selected graph.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void xYGrafToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int index = listView1.FocusedItem.Index;
@@ -325,6 +411,11 @@ namespace KomplexneSiete
             }
         }
 
+        /// <summary>
+        /// Click event for button "O programe"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void oProgrameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Program bol vytvorený na predmet\r\nTvorba Informačných Systémov.\r\n\r\n2014", "O programe");
