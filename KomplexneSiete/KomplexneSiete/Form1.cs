@@ -305,11 +305,12 @@ namespace KomplexneSiete
             {
                 saveFileDialog1.Filter = "Files (*.xml)|*.xml";
                 saveFileDialog1.Title = "Uložiť Graf";
-                saveFileDialog1.ShowDialog();
-                List<string> l = new List<string>(saveFileDialog1.FileName.Split('/'));
-                var g = graphs[index];
-                Export ex = new Export();
-                ex.make_XML_file(saveFileDialog1.FileName, g.graph);
+                if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    var g = graphs[index];
+                    Export ex = new Export();
+                    ex.make_XML_file(saveFileDialog1.FileName, g.graph);
+                }
             }
         }
 
