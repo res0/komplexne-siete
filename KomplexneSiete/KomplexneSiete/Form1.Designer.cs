@@ -36,7 +36,6 @@
             this.barabásiAlbertGrafToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nPGrafToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nMGrafToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.nPGrafToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oProgrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -45,9 +44,9 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.vizualizovatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xYGrafToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportovatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.xYGrafToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,8 +65,7 @@
             // generujToolStripMenuItem
             // 
             this.generujToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.grafBarabásiAlbertToolStripMenuItem,
-            this.nPGrafToolStripMenuItem});
+            this.grafBarabásiAlbertToolStripMenuItem});
             this.generujToolStripMenuItem.Name = "generujToolStripMenuItem";
             this.generujToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.generujToolStripMenuItem.Text = "Súbor";
@@ -79,7 +77,7 @@
             this.nPGrafToolStripMenuItem1,
             this.nMGrafToolStripMenuItem1});
             this.grafBarabásiAlbertToolStripMenuItem.Name = "grafBarabásiAlbertToolStripMenuItem";
-            this.grafBarabásiAlbertToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.grafBarabásiAlbertToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.grafBarabásiAlbertToolStripMenuItem.Text = "Generuj nový";
             // 
             // barabásiAlbertGrafToolStripMenuItem
@@ -103,13 +101,6 @@
             this.nMGrafToolStripMenuItem1.Text = "NM Graf";
             this.nMGrafToolStripMenuItem1.Click += new System.EventHandler(this.nMGrafToolStripMenuItem1_Click);
             // 
-            // nPGrafToolStripMenuItem
-            // 
-            this.nPGrafToolStripMenuItem.Name = "nPGrafToolStripMenuItem";
-            this.nPGrafToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.nPGrafToolStripMenuItem.Text = "Zatvoriť";
-            this.nPGrafToolStripMenuItem.Click += new System.EventHandler(this.nPGrafToolStripMenuItem_Click);
-            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -121,7 +112,7 @@
             // oProgrameToolStripMenuItem
             // 
             this.oProgrameToolStripMenuItem.Name = "oProgrameToolStripMenuItem";
-            this.oProgrameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oProgrameToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.oProgrameToolStripMenuItem.Text = "O programe";
             this.oProgrameToolStripMenuItem.Click += new System.EventHandler(this.oProgrameToolStripMenuItem_Click);
             // 
@@ -172,23 +163,23 @@
             // vizualizovatToolStripMenuItem
             // 
             this.vizualizovatToolStripMenuItem.Name = "vizualizovatToolStripMenuItem";
-            this.vizualizovatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vizualizovatToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.vizualizovatToolStripMenuItem.Text = "Vizualizovat";
             this.vizualizovatToolStripMenuItem.Click += new System.EventHandler(this.vizualizovatToolStripMenuItem_Click);
-            // 
-            // exportovatToolStripMenuItem
-            // 
-            this.exportovatToolStripMenuItem.Name = "exportovatToolStripMenuItem";
-            this.exportovatToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exportovatToolStripMenuItem.Text = "Exportovat";
-            this.exportovatToolStripMenuItem.Click += new System.EventHandler(this.exportovatToolStripMenuItem_Click);
             // 
             // xYGrafToolStripMenuItem
             // 
             this.xYGrafToolStripMenuItem.Name = "xYGrafToolStripMenuItem";
-            this.xYGrafToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.xYGrafToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.xYGrafToolStripMenuItem.Text = "XY graf";
             this.xYGrafToolStripMenuItem.Click += new System.EventHandler(this.xYGrafToolStripMenuItem_Click);
+            // 
+            // exportovatToolStripMenuItem
+            // 
+            this.exportovatToolStripMenuItem.Name = "exportovatToolStripMenuItem";
+            this.exportovatToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.exportovatToolStripMenuItem.Text = "Exportovat";
+            this.exportovatToolStripMenuItem.Click += new System.EventHandler(this.exportovatToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -216,7 +207,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem generujToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem grafBarabásiAlbertToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nPGrafToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oProgrameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem barabásiAlbertGrafToolStripMenuItem;
