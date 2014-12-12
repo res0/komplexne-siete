@@ -123,7 +123,7 @@ namespace KomplexneSiete
                 if (t.IsAlive && ! paused) 
                 {
                     t.Suspend();
-                    button2.Text = "Pokačovať";
+                    button2.Text = "Pokračovať";
                     paused = true;
                 }
                 else
