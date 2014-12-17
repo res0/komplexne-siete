@@ -10,21 +10,31 @@ using System.Windows.Forms;
 
 namespace KomplexneSiete
 {
+    /// <summary>
+    /// from ktorý ziskava paramtre pre generovanie BA modelu
+    /// </summary>
     public partial class FormBASetup : Form
     {
-
+        /// <summary>
+        /// začiatočný počet vrcholov
+        /// </summary>
         public int m { get; set; }
+        /// <summary>
+        /// počet vrcholov
+        /// </summary>
         public int n { get; set; }
+        /// <summary>
+        /// konštruktor
+        /// </summary>
         public FormBASetup()
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// po klinutí na button1 skotroluje zadané parametre a ak sú v poriadku uloží ich a ukončí sa
+        /// </summary>
+        /// <param name="sender">nepoužíva sa</param>
+        /// <param name="e">nepoužíva sa</param>
         private void button1_Click(object sender, EventArgs e)
         {
             var text1 = textBox1.Text;
@@ -58,6 +68,11 @@ namespace KomplexneSiete
         public void ShowMesssage(string text, string caption="")
         {
             MessageBox.Show(text,caption);
+        }
+
+        private void FormBASetup_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

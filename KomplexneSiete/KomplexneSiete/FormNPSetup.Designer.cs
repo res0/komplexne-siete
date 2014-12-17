@@ -90,6 +90,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "FormNPSetup";
             this.Text = "NP graf";
+            this.Load += new System.EventHandler(this.FormNPSetup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

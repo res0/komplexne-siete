@@ -5,13 +5,19 @@ using System.Text;
 
 namespace KomplexneSiete
 {
+    /// <summary>
+    /// zabezpečuje generovanie BA modelu
+    /// </summary>
     public class GraphBarabasiAlbert : Graph
     {
+        /// <summary>
+        /// genrátor náhodných čísel
+        /// </summary>
         private static Random random = new Random((int)DateTime.Now.Ticks);
         /// <summary>
-        /// Function compute the degree sum of all nodes
+        /// spočíta súčet stuňov všetkých vrcholov
         /// </summary>
-        /// <returns>the sum</returns>
+        /// <returns>súčet stuňov všetkých vrcholov</returns>
         public int GetDegreeSum()
         {
             int sum = 0;
@@ -21,10 +27,19 @@ namespace KomplexneSiete
             }
             return sum;
         }
+        /// <summary>
+        /// zvýši stpeň vrchola i o num
+        /// </summary>
+        /// <param name="i">index vrcholu</param>
+        /// <param name="num">príastok , default = 1</param>
         void IncDegree(int i, int num = 1)
         {
             nodes[i].ChangeDegree(nodes[i].GetDegree()+num);
         }
+        /// <summary>
+        /// zvýši stueň naposledy pridaného vrcholao num
+        /// </summary>
+        /// <param name="num">príastok</param>
         void IncLastDegree(int num)
         {
             int i = nodes.Count - 1;

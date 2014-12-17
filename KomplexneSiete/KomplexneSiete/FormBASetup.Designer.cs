@@ -90,6 +90,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "FormBASetup";
             this.Text = "BA graf";
+            this.Load += new System.EventHandler(this.FormBASetup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

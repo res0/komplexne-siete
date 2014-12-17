@@ -10,25 +10,76 @@ using System.Windows.Forms;
 
 namespace KomplexneSiete
 {
+    /// <summary>
+    /// zabezpečuje vyzualiazáciu NP a NM modelov
+    /// </summary>
     public partial class NP_NMform : Form
-    {
+    {   
+        /// <summary>
+        /// graf ktorý sa vyzualizovať
+        /// </summary>
         List<Node> graf;
+        /// <summary>
+        /// ak je vyzalizovaný graf NP ma hodnotu null ak je NM tak obsahuje zoznam bodov v poradí ako sa generovali
+        /// </summary>
         List<List<int>> NM;
+        /// <summary>
+        /// počet krokov ktoré majú byť vizualizované
+        /// </summary>
         int steps;
+        /// <summary>
+        /// súradnice vrcholov pre vykreslenie
+        /// </summary>
         List<Point> points;
+        /// <summary>
+        /// počet milisekúnd ktoré aplikaćia čaká mezi jednotlivými krokmi
+        /// </summary>
         int sleep = 700;
+        /// <summary>
+        /// polomer zobrazovaných kruhov
+        /// </summary>
         int r = 7;
+        /// <summary>
+        /// Graphics pomoco ktoré prebieha vizualizácia dát
+        /// </summary>
         private System.Drawing.Graphics g;
+        /// <summary>
+        /// červené pero
+        /// </summary>
         private System.Drawing.Pen penEdge = new System.Drawing.Pen(Color.Red, 1);
+        /// <summary>
+        /// červený štetec
+        /// </summary>
         private SolidBrush RedBrush = new SolidBrush(Color.Red);
+        /// <summary>
+        /// modrý štetec
+        /// </summary>
         private SolidBrush BlueBrush = new SolidBrush(Color.Blue);
+        /// <summary>
+        /// thread zabezpečujúci vizualizácie
+        /// </summary>
         private Thread t;
+        /// <summary>
+        /// zaznamenáva či je t práve suependnuté alebo nie
+        /// </summary>
         private Boolean paused;
+        /// <summary>
+        /// zaznamenáva či sa vizualizuje NP alebo NM graf
+        /// </summary>
         private Boolean NP = false;
+        /// <summary>
+        /// konštruktor, nepoužíva sa
+        /// </summary>
         public NP_NMform()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// konštruktor , inicializuje form , a vykreslí východiskový bod vizualizácie
+        /// </summary>
+        /// <param name="ngraf"> údaje o grafe</param>
+        /// <param name="csteps"> počet krokov ktoré sa majú vizualizovať</param>
+        /// <param name="cisla">pre NP graf null ,pre NM graf obsahuje zoznam dvojíc bodov východiskových pre jeho vizualizácie</param>
         public NP_NMform(List<Node> ngraf, int csteps, List<List<int>> cisla) 
         {
             InitializeComponent();
@@ -54,6 +105,9 @@ namespace KomplexneSiete
             pictureBox1.Show();
             generovanie();
         }
+        /// <summary>
+        /// vygeneruje súradnice vrcholov (podľa elipsi) pre vykreslenie grafu
+        /// </summary>
         public void generovanie()
         {
             Point centre = new Point(pictureBox1.Width/2,pictureBox1.Height/2);
@@ -70,6 +124,9 @@ namespace KomplexneSiete
 			}
             pictureBox1.Invalidate();
         }
+        /// <summary>
+        /// vičístí plochu a vykreslí východiskový bod vizualizácie
+        /// </summary>
         public void draw_nodes() 
         {
             g.Clear(Color.White);
@@ -78,7 +135,11 @@ namespace KomplexneSiete
                 g.FillEllipse(BlueBrush, points[i].X, points[i].Y, r, r);
             }
         }
-
+        /// <summary>
+        /// vizualizuje jeden krok generovania grafumedzi vrcholmi n1 n2
+        /// </summary>
+        /// <param name="n1"> prvy vrchol</param>
+        /// <param name="n2"> druhy vrchol</param>
         public void spracuj_hranu(int n1 , int n2)
         {
             g.FillEllipse(RedBrush, points[n1].X, points[n1].Y, r, r);
@@ -101,6 +162,9 @@ namespace KomplexneSiete
             pictureBox1.Invalidate();
 
         }
+        /// <summary>
+        /// zabezpečuje vykreslenie prvých x krokov generovania grafu NP x = steps
+        /// </summary>
         public void draw()
         {
             int pocet = 0;
@@ -122,6 +186,9 @@ namespace KomplexneSiete
                 }
            }
         }
+        /// <summary>
+        /// zabezpečuje vykreslenie prvých x krokov generovania grafu NM x = steps
+        /// </summary>
         public void drawNM() 
         {
             int pocet = 0;
@@ -137,6 +204,11 @@ namespace KomplexneSiete
             }
 
         }
+        /// <summary>
+        /// po klinutí na button1 som spustí vizualizácia od začaitku
+        /// </summary>
+        /// <param name="sender">nepoužíva sa</param>
+        /// <param name="e">nepoužíva sa</param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (t != null && t.IsAlive)
@@ -159,7 +231,11 @@ namespace KomplexneSiete
             paused = false;
             t.Start(); 
         }
-
+        /// <summary>
+        /// ak t.IsAlive tak na základe hodnoty premennej paused supendne alebo resumne t
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             if (t != null)
@@ -182,12 +258,20 @@ namespace KomplexneSiete
             }
 
         }
-
+        /// <summary>
+        /// pri zmene vScrollBar1 sa zmení hodnota sleep
+        /// </summary>
+        /// <param name="sender">nepoužíva sa</param>
+        /// <param name="e">nepoužíva sa</param>
         private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
             sleep = vScrollBar1.Value;
         }
-
+        /// <summary>
+        ///  automaticky generovaná metóda , neudeje sa nič
+        /// </summary>
+        /// <param name="sender">nepoužíva sa</param>
+        /// <param name="e">nepoužíva sa</param>
         private void NP_NMform_Load(object sender, EventArgs e)
         {
 

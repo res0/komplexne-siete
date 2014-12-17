@@ -10,15 +10,31 @@ using System.Windows.Forms;
 
 namespace KomplexneSiete
 {
+    /// <summary>
+    /// for krorý získa základné parametre generovania NM modelu
+    /// </summary>
     public partial class FormNMSetup : Form
     {
+        /// <summary>
+        /// počet hrán grafu
+        /// </summary>
         public int m { get; set; }
+        /// <summary>
+        /// počet vrcholov grafu
+        /// </summary>
         public int n { get; set; }
+        /// <summary>
+        /// konštruktor
+        /// </summary>
         public FormNMSetup()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// skontroluje zadané paramatre ak ak sú v poriadku uloží ich a ukočí formulár
+        /// </summary>
+        /// <param name="sender">nepoužíva sa</param>
+        /// <param name="e">nepoužíva sa</param>
         private void button1_Click(object sender, EventArgs e)
         {
             var text1 = textBox1.Text;
@@ -48,9 +64,18 @@ namespace KomplexneSiete
                 ShowMessage("Zadajte parametre.");
             }
         }
+        /// <summary>
+        /// zobrazí text
+        /// </summary>
+        /// <param name="text">text ktorý sa má zobraziť</param>
         public void ShowMessage(string text)
         {
             MessageBox.Show(text,"Chyba");
+        }
+
+        private void FormNMSetup_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,17 +8,29 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace KomplexneSiete
-{
+{   
+    /// <summary>
+    /// zabezpečuje vykreslenie xy grafu
+    /// </summary>
     public partial class XYform : Form
     {
+        // pamätá si či sa zobrazuje log škála grafu true znamená ,že sa nezobrazuje
         Boolean tlacidlo = true;
+        // pamätá si vrcholi grafu ktorý analizuje
         List<Node> nodes;
+        // pamätá si počet vrcholov z dsaním stupňom
         Dictionary<int,int> d;
+        /// <summary>
+        /// konštruktor , nepoužíva sa
+        /// </summary>
         public XYform()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// konsštruktor , incializuje form a do d spočíta početnošt stuňov vrcholov
+        /// </summary>
+        /// <param name="nd">údaje o grafe ktorý sa má analizovať</param>
         public XYform(List<Node> nd)
         {
             InitializeComponent();
@@ -37,7 +49,11 @@ namespace KomplexneSiete
                 }
             }
         }
-
+        /// <summary>
+        /// vykreslí graf bez log škáli
+        /// </summary>
+        /// <param name="sender">nepožíva sa</param>
+        /// <param name="e">nepožíva sa</param>
         private void XYform_Load(object sender, EventArgs e)
         {
 
@@ -48,7 +64,11 @@ namespace KomplexneSiete
                 chart1.Series["Vrcholy"].Points.AddXY(d[k[i]], k[i]);
             }
         }
-
+        /// <summary>
+        /// na základe hotnoty premennej tlacidlo zobrazí log alebo nolog graf a zmení hodnotu tlacidlo
+        /// </summary>
+        /// <param name="sender">nepožíva sa</param>
+        /// <param name="e">nepožíva sa</param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (tlacidlo)

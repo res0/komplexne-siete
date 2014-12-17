@@ -10,21 +10,66 @@ using System.Windows.Forms;
 
 namespace KomplexneSiete
 {
+    /// <summary>
+    /// form zabezpečujúci vyzualizáciu BA modelu
+    /// </summary>
     public partial class BAform : Form
     {
+        /// <summary>
+        /// zoznam vrcholov grafu ktorý sa má vizualizovať
+        /// </summary>
         List<Node> graf;
+        /// <summary>
+        /// počet krokov ktoré sa majú vizualizovať
+        /// </summary>
         int steps;
+        /// <summary>
+        /// zoznam súradnic vrchlov pre vykreslenie
+        /// </summary>
         List<Point> points;
+        /// <summary>
+        /// polomer vykreslovaného kruhu
+        /// </summary>
         int r = 7;
+        /// <summary>
+        /// počet milisekúnd ktoré program čaká medzi vizualizáciuou jednotlivýcj krokov
+        /// </summary>
         int sleep = 700;
+        /// <summary>
+        /// Graphics používaný na vykresľovanie
+        /// </summary>
         private System.Drawing.Graphics g;
+        /// <summary>
+        /// červené pero
+        /// </summary>
         private System.Drawing.Pen penEdge = new System.Drawing.Pen(Color.Red, 1);
+        /// <summary>
+        /// červený štetec
+        /// </summary>
         private SolidBrush RedBrush = new SolidBrush(Color.Red);
+        /// <summary>
+        /// modrý štretec
+        /// </summary>
         private SolidBrush BlueBrush = new SolidBrush(Color.Blue);
+        /// <summary>
+        /// generátor náhodných čísel
+        /// </summary>
         Random rnd = new Random();
+        /// <summary>
+        /// koľko vrcholov grafu sa má vykresliť hneď
+        /// </summary>
         int fund = 0;
+        /// <summary>
+        /// thread zabezpečujúci vyzualizáciu
+        /// </summary>
         Thread t;
+        /// <summary>
+        /// informácia o tom či je t suspended alebo nie
+        /// </summary>
         Boolean paused;
+        /// <summary>
+        /// konštruktor, nepoužíva sa
+        /// </summary>
         public BAform()
         {
             InitializeComponent();
@@ -39,6 +84,12 @@ namespace KomplexneSiete
             pictureBox1.Show();
         
         }
+        /// <summary>
+        /// konštruktor, inicializuje vizualizáciu
+        /// </summary>
+        /// <param name="ngraf">graf ktorý sa má vizualizovať</param>
+        /// <param name="csteps">počet krokov ktoré sa majú vizualizovať</param>
+        /// <param name="start">počet vrcholov ktoré sa majú vkresliť rovno</param>
         public BAform(List<Node> ngraf , int csteps , int start)
         {
             InitializeComponent();
@@ -57,6 +108,9 @@ namespace KomplexneSiete
             generovanie();
             drawFund();
         }
+        /// <summary>
+        /// vykresí základ grafu
+        /// </summary>
         public void drawFund() {
             g.Clear(Color.White);
             for (int i = 0; i <= fund ; i++)
@@ -72,6 +126,10 @@ namespace KomplexneSiete
             }
             pictureBox1.Invalidate();
         }
+        /// <summary>
+        /// vizualizuje jeden krok generoania grafu
+        /// </summary>
+        /// <param name="x"></param>
         public void drawStep(int x)
         {
             g.FillEllipse(RedBrush, points[x].X, points[x].Y, r, r);
@@ -89,6 +147,9 @@ namespace KomplexneSiete
             g.FillEllipse(BlueBrush, points[x].X, points[x].Y, r, r);
             pictureBox1.Invalidate();
         }
+        /// <summary>
+        /// postupne vyzualizuje prých x krokov geerovania BA modelu , x = steps
+        /// </summary>
         public void draw()
         {
             int step = fund + 1;
@@ -99,7 +160,11 @@ namespace KomplexneSiete
                 step++;
             }
         }
-
+        /// <summary>
+        /// spustí vyzualizáci od začiatku za pomoci t a metód draw() a drawFund()
+        /// </summary>
+        /// <param name="sender">nepoužíva sa</param>
+        /// <param name="e">nepoužíva sa</param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (t != null && t.IsAlive) 
@@ -115,7 +180,11 @@ namespace KomplexneSiete
             paused = false;
             t.Start(); 
         }
-
+        /// <summary>
+        /// ak t.isAlive je true tak na zálade premmenej paused suspendne alebo resumne t
+        /// </summary>
+        /// <param name="sender">nepoužíva sa</param>
+        /// <param name="e">nepoužíva sa</param>
         private void button2_Click(object sender, EventArgs e)
         {
             if (t != null)
@@ -137,6 +206,9 @@ namespace KomplexneSiete
                 }
             }
         }
+        /// <summary>
+        /// vygeneruje súradnice vrcholov grafu pre vykreslovanie
+        /// </summary>
         private void generovanie()
         {
             Point centre = new Point(pictureBox1.Width / 2, pictureBox1.Height / 2);
@@ -152,10 +224,23 @@ namespace KomplexneSiete
             }
             pictureBox1.Invalidate();
         }
-
+        /// <summary>
+        /// pri zmene stavu vScrollBar1 nastavý hodnotu sleep na vScrollBar1.Value
+        /// </summary>
+        /// <param name="sender">nepoužíva sa</param>
+        /// <param name="e">nepoužíva sa</param>
         private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
             sleep = vScrollBar1.Value;
+        }
+        /// <summary>
+        ///  neudeje sa nič
+        /// </summary>
+        /// <param name="sender">nepoužíva sa</param>
+        /// <param name="e">nepoužíva sa</param>
+        private void BAform_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

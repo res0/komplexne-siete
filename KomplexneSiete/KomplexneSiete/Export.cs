@@ -6,8 +6,16 @@ using System.Xml;
 
 namespace KomplexneSiete
 {
+    /// <summary>
+    /// trieda ktorá zabezpečuje export grafu do XML súboru
+    /// </summary>
     public class Export
     {
+        /// <summary>
+        /// zapíše vrcholy do XML súboru
+        /// </summary>
+        /// <param name="writer">XmlTextWriter ktorý použije na zaíasanie </param>
+        /// <param name="nodes">zoznam vrcholov ktoré má zapísať</param>
         private void write_nodes(XmlTextWriter writer, List<Node> nodes)
         {
             for (int i = 0; i < nodes.Count(); i++) {
@@ -21,6 +29,11 @@ namespace KomplexneSiete
             }
 
         }
+        /// <summary>
+        /// zapíše hrany do XML súboru
+        /// </summary>
+        /// <param name="writer">XmlTextWriter ktorý použije na zaíasanie </param>
+        /// <param name="nodes">zoznam vrcholov ktorýh harny má zapísať</param>
         private void write_edges(XmlTextWriter writer,List<Node> nodes)
         {
             int p = 1;
@@ -41,6 +54,11 @@ namespace KomplexneSiete
             }
 
         }
+        /// <summary>
+        /// zapíše graf na do súboru s zadaným menom
+        /// </summary>
+        /// <param name="name">graf ktorý má zapísať</param>
+        /// <param name="graf">meno súboru</param>
         public void make_XML_file(String name, Graph graf)
         {
             XmlTextWriter writer = new XmlTextWriter(name + ".xml", System.Text.Encoding.UTF8);

@@ -85,8 +85,6 @@
     </Compile>
     <Compile Include="GraphNM.cs" />
     <Compile Include="GraphNP.cs" />
-    <Compile Include="GraphXY.cs" />
-    <Compile Include="Graph_Log.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Graph.cs" />
     <Compile Include="NP_NMform.cs">

@@ -89,6 +89,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormNMSetup";
             this.Text = "NM Graf";
+            this.Load += new System.EventHandler(this.FormNMSetup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
