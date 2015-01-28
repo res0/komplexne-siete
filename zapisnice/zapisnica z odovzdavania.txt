@@ -1,0 +1,19 @@
+Zapisnica z odovzdavania projektu
+-------------------------------------------------------
+Peter Floch, Jabuk Sedl·Ëek, Mari·n Jonis, Marek Kuûel
+-------------------------------------------------------
+- Zhodnotenie celeho projektu
+- Odprezentovanie hotoveho projektu zadavatelovi(doc. RNDr. Maria Markosova, PhD.)
+- Diskusia o pripomienkach a dalsich poziadavkach
+- Rozdelenie uloh
+-------------------------------------------------------
+Zhodnotenie projektu:
+- Projekt bol vypracovany na 100%
+-------------------------------------------------------
+Diskusia o pripomienkach:
+- Jedinou poziadavkou bolo doplnenie vizualizacie grafu v tvare logX/logY
+-------------------------------------------------------
+Naplanovane ulohy:
+update vizualizacie na logX/logY, vytvorit manual, vypracovat zaverecnu spravu.
+-------------------------------------------------------
+Zodpovedaù za to bude kaûd˝ Ëlen sklupiny.
